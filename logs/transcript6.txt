@@ -1,0 +1,722 @@
+Enter number of players: 2
+Player 1 setup:
+Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique, 6. AI
+5
+Enter player's name: Unique
+Player 2 setup:
+Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique, 6. AI
+6
+Enter player's name: AI
+Invalid type, defaulting to Wimp.
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 3 making their new round score 3
+Player Unique has a current turn total of 3 and just rolled a 1 making their new round score 4
+Player Unique has a current turn total of 4 and just rolled a 5 making their new round score 9
+Player Unique has decided to end their turn because they have doubled their score this turn.
+   Unique scores 9 this turn. Total: 9
+
+Current Scores:
+   Unique: 9
+   AI: 0
+   AI: 0
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 4 Current turn score: 7
+   Rolled 2 Current turn score: 9
+   Rolled 3 times, stopping. Turn score: 9
+   AI scores 9 this turn. Total: 9
+
+Current Scores:
+   Unique: 9
+   AI: 9
+   AI: 0
+
+--- AI's turn ---
+   Player AI rolled 4 and chose not to continue, scoring 4 for the turn.
+   AI scores 4 this turn. Total: 4
+
+Current Scores:
+   Unique: 9
+   AI: 9
+   AI: 4
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 4 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 4 making their new round score 13
+Player Unique has decided to end their turn because they have doubled their score this turn.
+   Unique scores 13 this turn. Total: 22
+
+Current Scores:
+   Unique: 22
+   AI: 9
+   AI: 4
+
+--- AI's turn ---
+   Rolled 1 Current turn score: 1
+   Rolled 5 Current turn score: 6
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 9
+
+Current Scores:
+   Unique: 22
+   AI: 9
+   AI: 4
+
+--- AI's turn ---
+   Player AI rolled 6 and scored 0 for the turn.
+   AI scores 0 this turn. Total: 4
+
+Current Scores:
+   Unique: 22
+   AI: 9
+   AI: 4
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 22
+
+Current Scores:
+   Unique: 22
+   AI: 9
+   AI: 4
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 3 Current turn score: 6
+   Rolled 3 Current turn score: 9
+   Rolled 3 times, stopping. Turn score: 9
+   AI scores 9 this turn. Total: 18
+
+Current Scores:
+   Unique: 22
+   AI: 18
+   AI: 4
+
+--- AI's turn ---
+   Player AI rolled 1 and chose not to continue, scoring 1 for the turn.
+   AI scores 1 this turn. Total: 5
+
+Current Scores:
+   Unique: 22
+   AI: 18
+   AI: 5
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 2 making their new round score 2
+Player Unique has a current turn total of 2 and just rolled a 1 making their new round score 3
+Player Unique has a current turn total of 3 and just rolled a 4 making their new round score 7
+Player Unique has a current turn total of 7 and just rolled a 2 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 1 making their new round score 10
+Player Unique has a current turn total of 10 and just rolled a 1 making their new round score 11
+Player Unique has a current turn total of 11 and just rolled a 4 making their new round score 15
+Player Unique has a current turn total of 15 and just rolled a 3 making their new round score 18
+Player Unique has a current turn total of 18 and just rolled a 3 making their new round score 21
+Player Unique has a current turn total of 21 and just rolled a 3 making their new round score 24
+Player Unique has decided to end their turn because they have doubled their score this turn.
+   Unique scores 24 this turn. Total: 46
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 5
+
+--- AI's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 18
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 5
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 7
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 7
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 46
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 7
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 18
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 7
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 9
+
+Current Scores:
+   Unique: 46
+   AI: 18
+   AI: 9
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 4 making their new round score 4
+Player Unique has a current turn total of 4 and just rolled a 3 making their new round score 7
+Player Unique has a current turn total of 7 and just rolled a 5 making their new round score 12
+Player Unique has a current turn total of 12 and just rolled a 4 making their new round score 16
+Player Unique has a current turn total of 16 and just rolled a 4 making their new round score 20
+Player Unique has a current turn total of 20 and just rolled a 1 making their new round score 21
+Player Unique has a current turn total of 21 and just rolled a 2 making their new round score 23
+Player Unique has a current turn total of 23 and just rolled a 1 making their new round score 24
+Player Unique has a current turn total of 24 and just rolled a 3 making their new round score 27
+Player Unique has a current turn total of 27 and just rolled a 4 making their new round score 31
+Player Unique has a current turn total of 31 and just rolled a 3 making their new round score 34
+Player Unique has a current turn total of 34 and just rolled a 2 making their new round score 36
+Player Unique has a current turn total of 36 and just rolled a 3 making their new round score 39
+Player Unique has a current turn total of 39 and just rolled a 3 making their new round score 42
+Player Unique has a current turn total of 42 and just rolled a 4 making their new round score 46
+Player Unique has a current turn total of 46 and just rolled a 2 making their new round score 48
+Player Unique has decided to end their turn because they have doubled their score this turn.
+   Unique scores 48 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 18
+   AI: 9
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 2 Current turn score: 5
+   Rolled 5 Current turn score: 10
+   Rolled 3 times, stopping. Turn score: 10
+   AI scores 10 this turn. Total: 28
+
+Current Scores:
+   Unique: 94
+   AI: 28
+   AI: 9
+
+--- AI's turn ---
+   Player AI rolled 6 and scored 0 for the turn.
+   AI scores 0 this turn. Total: 9
+
+Current Scores:
+   Unique: 94
+   AI: 28
+   AI: 9
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 2 making their new round score 7
+Player Unique has a current turn total of 7 and just rolled a 4 making their new round score 11
+Player Unique has a current turn total of 11 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 28
+   AI: 9
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 5 Current turn score: 8
+   Rolled 1 Current turn score: 9
+   Rolled 3 times, stopping. Turn score: 9
+   AI scores 9 this turn. Total: 37
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 9
+
+--- AI's turn ---
+   Player AI rolled 1 and chose not to continue, scoring 1 for the turn.
+   AI scores 1 this turn. Total: 10
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 10
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 10
+
+--- AI's turn ---
+   Rolled 1 Current turn score: 1
+   Rolled 2 Current turn score: 3
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 37
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 10
+
+--- AI's turn ---
+   Player AI rolled 3 and chose not to continue, scoring 3 for the turn.
+   AI scores 3 this turn. Total: 13
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 13
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 13
+
+--- AI's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 3 Current turn score: 5
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 37
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 13
+
+--- AI's turn ---
+   Player AI rolled 1 and chose not to continue, scoring 1 for the turn.
+   AI scores 1 this turn. Total: 14
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 14
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 3 making their new round score 3
+Player Unique has a current turn total of 3 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 37
+   AI: 14
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 1 Current turn score: 4
+   Rolled 1 Current turn score: 5
+   Rolled 3 times, stopping. Turn score: 5
+   AI scores 5 this turn. Total: 42
+
+Current Scores:
+   Unique: 94
+   AI: 42
+   AI: 14
+
+--- AI's turn ---
+   Player AI rolled 3 and chose not to continue, scoring 3 for the turn.
+   AI scores 3 this turn. Total: 17
+
+Current Scores:
+   Unique: 94
+   AI: 42
+   AI: 17
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 1 making their new round score 1
+Player Unique has a current turn total of 1 and just rolled a 3 making their new round score 4
+Player Unique has a current turn total of 4 and just rolled a 5 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 3 making their new round score 12
+Player Unique has a current turn total of 12 and just rolled a 2 making their new round score 14
+Player Unique has a current turn total of 14 and just rolled a 5 making their new round score 19
+Player Unique has a current turn total of 19 and just rolled a 1 making their new round score 20
+Player Unique has a current turn total of 20 and just rolled a 5 making their new round score 25
+Player Unique has a current turn total of 25 and just rolled a 2 making their new round score 27
+Player Unique has a current turn total of 27 and just rolled a 2 making their new round score 29
+Player Unique has a current turn total of 29 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 42
+   AI: 17
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 3 Current turn score: 6
+   Rolled 1 Current turn score: 7
+   Rolled 3 times, stopping. Turn score: 7
+   AI scores 7 this turn. Total: 49
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 17
+
+--- AI's turn ---
+   Player AI rolled 3 and chose not to continue, scoring 3 for the turn.
+   AI scores 3 this turn. Total: 20
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 20
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 1 making their new round score 1
+Player Unique has a current turn total of 1 and just rolled a 4 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 5 making their new round score 10
+Player Unique has a current turn total of 10 and just rolled a 1 making their new round score 11
+Player Unique has a current turn total of 11 and just rolled a 4 making their new round score 15
+Player Unique has a current turn total of 15 and just rolled a 1 making their new round score 16
+Player Unique has a current turn total of 16 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 20
+
+--- AI's turn ---
+   Rolled 5 Current turn score: 5
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 49
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 20
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 22
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 22
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 22
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 49
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 22
+
+--- AI's turn ---
+   Player AI rolled 6 and scored 0 for the turn.
+   AI scores 0 this turn. Total: 22
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 22
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 49
+   AI: 22
+
+--- AI's turn ---
+   Rolled 1 Current turn score: 1
+   Rolled 1 Current turn score: 2
+   Rolled 2 Current turn score: 4
+   Rolled 3 times, stopping. Turn score: 4
+   AI scores 4 this turn. Total: 53
+
+Current Scores:
+   Unique: 94
+   AI: 53
+   AI: 22
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 24
+
+Current Scores:
+   Unique: 94
+   AI: 53
+   AI: 24
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 53
+   AI: 24
+
+--- AI's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 3 Current turn score: 6
+   Rolled 4 Current turn score: 10
+   Rolled 3 times, stopping. Turn score: 10
+   AI scores 10 this turn. Total: 63
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 24
+
+--- AI's turn ---
+   Player AI rolled 6 and scored 0 for the turn.
+   AI scores 0 this turn. Total: 24
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 24
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 3 making their new round score 3
+Player Unique has a current turn total of 3 and just rolled a 4 making their new round score 7
+Player Unique has a current turn total of 7 and just rolled a 2 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 3 making their new round score 12
+Player Unique has a current turn total of 12 and just rolled a 5 making their new round score 17
+Player Unique has a current turn total of 17 and just rolled a 2 making their new round score 19
+Player Unique has a current turn total of 19 and just rolled a 2 making their new round score 21
+Player Unique has a current turn total of 21 and just rolled a 5 making their new round score 26
+Player Unique has a current turn total of 26 and just rolled a 3 making their new round score 29
+Player Unique has a current turn total of 29 and just rolled a 1 making their new round score 30
+Player Unique has a current turn total of 30 and just rolled a 3 making their new round score 33
+Player Unique has a current turn total of 33 and just rolled a 2 making their new round score 35
+Player Unique has a current turn total of 35 and just rolled a 2 making their new round score 37
+Player Unique has a current turn total of 37 and just rolled a 5 making their new round score 42
+Player Unique has a current turn total of 42 and just rolled a 4 making their new round score 46
+Player Unique has a current turn total of 46 and just rolled a 4 making their new round score 50
+Player Unique has a current turn total of 50 and just rolled a 1 making their new round score 51
+Player Unique has a current turn total of 51 and just rolled a 3 making their new round score 54
+Player Unique has a current turn total of 54 and just rolled a 3 making their new round score 57
+Player Unique has a current turn total of 57 and just rolled a 5 making their new round score 62
+Player Unique has a current turn total of 62 and just rolled a 4 making their new round score 66
+Player Unique has a current turn total of 66 and just rolled a 1 making their new round score 67
+Player Unique has a current turn total of 67 and just rolled a 3 making their new round score 70
+Player Unique has a current turn total of 70 and just rolled a 5 making their new round score 75
+Player Unique has a current turn total of 75 and just rolled a 2 making their new round score 77
+Player Unique has a current turn total of 77 and just rolled a 5 making their new round score 82
+Player Unique has a current turn total of 82 and just rolled a 5 making their new round score 87
+Player Unique has a current turn total of 87 and just rolled a 5 making their new round score 92
+Player Unique has a current turn total of 92 and just rolled a 1 making their new round score 93
+Player Unique has a current turn total of 93 and just rolled a 1 making their new round score 94
+Player Unique has a current turn total of 94 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 24
+
+--- AI's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 63
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 24
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 26
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 26
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 3 making their new round score 3
+Player Unique has a current turn total of 3 and just rolled a 5 making their new round score 8
+Player Unique has a current turn total of 8 and just rolled a 1 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 26
+
+--- AI's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 3 Current turn score: 5
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 63
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 26
+
+--- AI's turn ---
+   Player AI rolled 2 and chose not to continue, scoring 2 for the turn.
+   AI scores 2 this turn. Total: 28
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 28
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 1 making their new round score 6
+Player Unique has a current turn total of 6 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 63
+   AI: 28
+
+--- AI's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 1 Current turn score: 3
+   Rolled 4 Current turn score: 7
+   Rolled 3 times, stopping. Turn score: 7
+   AI scores 7 this turn. Total: 70
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 28
+
+--- AI's turn ---
+   Player AI rolled 4 and chose not to continue, scoring 4 for the turn.
+   AI scores 4 this turn. Total: 32
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 32
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 4 making their new round score 4
+Player Unique has a current turn total of 4 and just rolled a 3 making their new round score 7
+Player Unique has a current turn total of 7 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 32
+
+--- AI's turn ---
+   Rolled 6 Scored 0 for the turn.
+   AI scores 0 this turn. Total: 70
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 32
+
+--- AI's turn ---
+   Player AI rolled 1 and chose not to continue, scoring 1 for the turn.
+   AI scores 1 this turn. Total: 33
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 33
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 6 scoring 0 for their turn
+   Unique scores 0 this turn. Total: 94
+
+Current Scores:
+   Unique: 94
+   AI: 70
+   AI: 33
+
+--- AI's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 2 Current turn score: 6
+   Rolled 4 Current turn score: 10
+   Rolled 3 times, stopping. Turn score: 10
+   AI scores 10 this turn. Total: 80
+
+Current Scores:
+   Unique: 94
+   AI: 80
+   AI: 33
+
+--- AI's turn ---
+   Player AI rolled 4 and chose not to continue, scoring 4 for the turn.
+   AI scores 4 this turn. Total: 37
+
+Current Scores:
+   Unique: 94
+   AI: 80
+   AI: 37
+
+--- Unique's turn ---
+Player Unique has a current turn total of 0 and just rolled a 5 making their new round score 5
+Player Unique has a current turn total of 5 and just rolled a 4 making their new round score 9
+Player Unique has a current turn total of 9 and just rolled a 1 making their new round score 10
+Player Unique has a current turn total of 10 and just rolled a 5 making their new round score 15
+Player Unique has a current turn total of 15 and just rolled a 3 making their new round score 18
+Player Unique has a current turn total of 18 and just rolled a 1 making their new round score 19
+Player Unique has a current turn total of 19 and just rolled a 2 making their new round score 21
+Player Unique has a current turn total of 21 and just rolled a 3 making their new round score 24
+Player Unique has a current turn total of 24 and just rolled a 5 making their new round score 29
+Player Unique has a current turn total of 29 and just rolled a 3 making their new round score 32
+Player Unique has a current turn total of 32 and just rolled a 2 making their new round score 34
+Player Unique has a current turn total of 34 and just rolled a 5 making their new round score 39
+Player Unique has a current turn total of 39 and just rolled a 2 making their new round score 41
+Player Unique has a current turn total of 41 and just rolled a 4 making their new round score 45
+Player Unique has a current turn total of 45 and just rolled a 3 making their new round score 48
+Player Unique has a current turn total of 48 and just rolled a 5 making their new round score 53
+Player Unique has a current turn total of 53 and just rolled a 2 making their new round score 55
+Player Unique has a current turn total of 55 and just rolled a 3 making their new round score 58
+Player Unique has a current turn total of 58 and just rolled a 1 making their new round score 59
+Player Unique has a current turn total of 59 and just rolled a 4 making their new round score 63
+Player Unique has a current turn total of 63 and just rolled a 1 making their new round score 64
+Player Unique has a current turn total of 64 and just rolled a 5 making their new round score 69
+Player Unique has a current turn total of 69 and just rolled a 5 making their new round score 74
+Player Unique has a current turn total of 74 and just rolled a 2 making their new round score 76
+Player Unique has a current turn total of 76 and just rolled a 4 making their new round score 80
+Player Unique has a current turn total of 80 and just rolled a 5 making their new round score 85
+Player Unique has a current turn total of 85 and just rolled a 3 making their new round score 88
+Player Unique has a current turn total of 88 and just rolled a 5 making their new round score 93
+Player Unique has a current turn total of 93 and just rolled a 2 making their new round score 95
+Player Unique has decided to end their turn because they have doubled their score this turn.
+   Unique scores 95 this turn. Total: 189
+
+!!! Unique wins with a score of 189 !!!
+
+Process finished with exit code 0

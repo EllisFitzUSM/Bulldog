@@ -1,0 +1,447 @@
+Enter number of players: 2
+Player 1 setup:
+Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique
+3
+Enter player's name: Fifteen
+Player 2 setup:
+Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique
+4
+Enter player's name: Wimp
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 0
+
+Current Scores:
+   Fifteen: 0
+   Wimp: 0
+
+--- Wimp's turn ---
+   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   Wimp scores 2 this turn. Total: 2
+
+Current Scores:
+   Fifteen: 0
+   Wimp: 2
+
+--- Fifteen's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 2 Current turn score: 6
+   Rolled 3 Current turn score: 9
+   Rolled 1 Current turn score: 10
+   Rolled 3 Current turn score: 13
+   Rolled 1 Current turn score: 14
+   Rolled 2 Current turn score: 16
+   Reached 15, stopping. Turn score: 16
+   Fifteen scores 16 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 2
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 7
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 7
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 7
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 12
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 12
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 12
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 17
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 17
+
+--- Fifteen's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 4 Current turn score: 7
+   Rolled 4 Current turn score: 11
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 17
+
+--- Wimp's turn ---
+   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   Wimp scores 4 this turn. Total: 21
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 21
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 21
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 26
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 26
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 16
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 26
+
+--- Wimp's turn ---
+   Player Wimp rolled 6 and scored 0 for the turn.
+   Wimp scores 0 this turn. Total: 26
+
+Current Scores:
+   Fifteen: 16
+   Wimp: 26
+
+--- Fifteen's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 2 Current turn score: 5
+   Rolled 3 Current turn score: 8
+   Rolled 2 Current turn score: 10
+   Rolled 2 Current turn score: 12
+   Rolled 5 Current turn score: 17
+   Reached 15, stopping. Turn score: 17
+   Fifteen scores 17 this turn. Total: 33
+
+Current Scores:
+   Fifteen: 33
+   Wimp: 26
+
+--- Wimp's turn ---
+   Player Wimp rolled 6 and scored 0 for the turn.
+   Wimp scores 0 this turn. Total: 26
+
+Current Scores:
+   Fifteen: 33
+   Wimp: 26
+
+--- Fifteen's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 2 Current turn score: 6
+   Rolled 1 Current turn score: 7
+   Rolled 4 Current turn score: 11
+   Rolled 5 Current turn score: 16
+   Reached 15, stopping. Turn score: 16
+   Fifteen scores 16 this turn. Total: 49
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 26
+
+--- Wimp's turn ---
+   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   Wimp scores 1 this turn. Total: 27
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 27
+
+--- Fifteen's turn ---
+   Rolled 1 Current turn score: 1
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 49
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 27
+
+--- Wimp's turn ---
+   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   Wimp scores 3 this turn. Total: 30
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 30
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 49
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 30
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 35
+
+Current Scores:
+   Fifteen: 49
+   Wimp: 35
+
+--- Fifteen's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 4 Current turn score: 8
+   Rolled 2 Current turn score: 10
+   Rolled 1 Current turn score: 11
+   Rolled 1 Current turn score: 12
+   Rolled 3 Current turn score: 15
+   Reached 15, stopping. Turn score: 15
+   Fifteen scores 15 this turn. Total: 64
+
+Current Scores:
+   Fifteen: 64
+   Wimp: 35
+
+--- Wimp's turn ---
+   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   Wimp scores 4 this turn. Total: 39
+
+Current Scores:
+   Fifteen: 64
+   Wimp: 39
+
+--- Fifteen's turn ---
+   Rolled 5 Current turn score: 5
+   Rolled 2 Current turn score: 7
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 64
+
+Current Scores:
+   Fifteen: 64
+   Wimp: 39
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 44
+
+Current Scores:
+   Fifteen: 64
+   Wimp: 44
+
+--- Fifteen's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 5 Current turn score: 7
+   Rolled 3 Current turn score: 10
+   Rolled 3 Current turn score: 13
+   Rolled 4 Current turn score: 17
+   Reached 15, stopping. Turn score: 17
+   Fifteen scores 17 this turn. Total: 81
+
+Current Scores:
+   Fifteen: 81
+   Wimp: 44
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 49
+
+Current Scores:
+   Fifteen: 81
+   Wimp: 49
+
+--- Fifteen's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 4 Current turn score: 6
+   Rolled 5 Current turn score: 11
+   Rolled 1 Current turn score: 12
+   Rolled 3 Current turn score: 15
+   Reached 15, stopping. Turn score: 15
+   Fifteen scores 15 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 49
+
+--- Wimp's turn ---
+   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   Wimp scores 4 this turn. Total: 53
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 53
+
+--- Fifteen's turn ---
+   Rolled 5 Current turn score: 5
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 53
+
+--- Wimp's turn ---
+   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   Wimp scores 4 this turn. Total: 57
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 57
+
+--- Fifteen's turn ---
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 57
+
+--- Wimp's turn ---
+   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   Wimp scores 3 this turn. Total: 60
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 60
+
+--- Fifteen's turn ---
+   Rolled 1 Current turn score: 1
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 60
+
+--- Wimp's turn ---
+   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   Wimp scores 1 this turn. Total: 61
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 61
+
+--- Fifteen's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 61
+
+--- Wimp's turn ---
+   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   Wimp scores 2 this turn. Total: 63
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 63
+
+--- Fifteen's turn ---
+   Rolled 4 Current turn score: 4
+   Rolled 5 Current turn score: 9
+   Rolled 1 Current turn score: 10
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 63
+
+--- Wimp's turn ---
+   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   Wimp scores 3 this turn. Total: 66
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 66
+
+--- Fifteen's turn ---
+   Rolled 5 Current turn score: 5
+   Rolled 3 Current turn score: 8
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 66
+
+--- Wimp's turn ---
+   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   Wimp scores 1 this turn. Total: 67
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 67
+
+--- Fifteen's turn ---
+   Rolled 2 Current turn score: 2
+   Rolled 4 Current turn score: 6
+   Rolled 4 Current turn score: 10
+   Rolled 3 Current turn score: 13
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 67
+
+--- Wimp's turn ---
+   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   Wimp scores 5 this turn. Total: 72
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 72
+
+--- Fifteen's turn ---
+   Rolled 3 Current turn score: 3
+   Rolled 3 Current turn score: 6
+   Rolled 2 Current turn score: 8
+   Rolled 4 Current turn score: 12
+   Rolled 6 Scored 0 for the turn.
+   Fifteen scores 0 this turn. Total: 96
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 72
+
+--- Wimp's turn ---
+   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   Wimp scores 2 this turn. Total: 74
+
+Current Scores:
+   Fifteen: 96
+   Wimp: 74
+
+--- Fifteen's turn ---
+   Rolled 5 Current turn score: 5
+   Rolled 3 Current turn score: 8
+   Rolled 2 Current turn score: 10
+   Rolled 2 Current turn score: 12
+   Rolled 2 Current turn score: 14
+   Rolled 5 Current turn score: 19
+   Reached 15, stopping. Turn score: 19
+   Fifteen scores 19 this turn. Total: 115
+
+!!! Fifteen wins with a score of 115 !!!
+
+Process finished with exit code 0
