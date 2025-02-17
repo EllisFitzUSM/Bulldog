@@ -36,7 +36,7 @@ public class UniquePlayer extends Player {
             rollTotal += roll;
             System.out.println(" making their new round score " + rollTotal);
         }
-        while(getScore() == 0 && rollTotal < 5 || rollTotal + getScore() <= getScore() * 2);
+        while((getScore() == 0 && rollTotal < 5 || rollTotal + getScore() <= getScore() * 2) && rollTotal + getScore() < Prog1.SCORE_MAX);
         System.out.println("Player " + getName() + " has decided to end their turn because they have doubled their score this turn.");
         return rollTotal;
     }

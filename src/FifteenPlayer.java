@@ -26,7 +26,7 @@ public class FifteenPlayer extends Player {
             rollTotal += roll;
             System.out.println(" making their new round score " + rollTotal);
         }
-        while(rollTotal < 15);
+        while(rollTotal < 15 && getScore() + rollTotal < Prog1.SCORE_MAX);
         System.out.println("Player " + getName() + " has decided to end their turn because their turn total has reached over 15.");
         return rollTotal;
     }

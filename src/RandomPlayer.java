@@ -36,7 +36,7 @@ public class RandomPlayer extends Player {
             rollTotal += roll;
             System.out.println(" making their new round score " + rollTotal);
         }
-        while(Math.random() < 0.5);
+        while(Math.random() < 0.5 && rollTotal + getScore() < Prog1.SCORE_MAX);
         System.out.println("Player " + getName() + " has decided to end their turn by flipping a coin.");
         return rollTotal;
     }

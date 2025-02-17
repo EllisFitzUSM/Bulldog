@@ -9,7 +9,10 @@ import java.util.Scanner;
  * COS 420 Assignment 1
  * Main Program File
  */
+
 public class Prog1 {
+
+    public static int SCORE_MAX = 104;
 
     /**
      * Main Function (Entry Point)
@@ -32,7 +35,7 @@ public class Prog1 {
                 currentPlayer = playerIterator.next();
             }
             currentPlayer.setScore(currentPlayer.getScore() + currentPlayer.play());
-            if(currentPlayer.getScore() >= 104) {
+            if(currentPlayer.getScore() >= SCORE_MAX) {
                 System.out.println("Player " + currentPlayer.getName() + " has won the game with " + currentPlayer.getScore());
                 break;
             }
@@ -50,26 +53,42 @@ public class Prog1 {
     public static ArrayList<Player> getPlayers(Scanner sc) {
         System.out.print("How many players are playing?: ");
 
-        int playerCount = sc.nextInt();
+        int playerCount;
+        while(true) {
+            try{
+                playerCount = Integer.parseInt(sc.nextLine());
+                break;
+            }
+            catch(Exception e) {
+                System.out.println("Please enter a valid number with no alphabet or special characters!");
+            }
+        }
 
         ArrayList<Player> players = new ArrayList<Player>(playerCount);
         for(int i = 0; i < playerCount; i++) {
             while(true) {
                 printPlayerChoices();
-
                 System.out.print("\nWhat type (number) of player is Player " + (i + 1) + "?:");
-                int playerChoice = sc.nextInt();
-                sc.nextLine();
 
-                if(playerChoice <= 5 && playerChoice >= 1) {
+                try {
+                    int playerChoice = Integer.parseInt(sc.nextLine());
+                    if(playerChoice <= 5 && playerChoice >= 1) {
 
-                    System.out.print("What name would you like to give this player?: ");
-                    String playerName = sc.next();
-                    sc.nextLine();
+                        System.out.print("What name would you like to give this player?: ");
+                        String playerName = sc.next();
+                        sc.nextLine();
 
-                    players.add(getPlayer(playerChoice, sc, playerName));
-                    break;
+                        players.add(getPlayer(playerChoice, sc, playerName));
+                        break;
+                    }
+                    else {
+                        System.out.println("Please enter a number within 1-5 range!");
+                    }
                 }
+                catch(Exception e) {
+                    System.out.println("Please enter a valid number with no alphabet or special characters!");
+                }
+
             }
         }
         return players;

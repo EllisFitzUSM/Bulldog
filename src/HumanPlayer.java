@@ -43,17 +43,18 @@ public class HumanPlayer extends Player {
             }
             rollTotal += roll;
             System.out.println(" making their new round score " + rollTotal + ".");
+            if(rollTotal + getScore() < Prog1.SCORE_MAX) {
+                break;
+            }
             System.out.print("Press any character key to keep rolling!\nOr press N/n (for No):");
             try {
                 String nextLine = sc.nextLine();
                 if(nextLine.contains("n") || nextLine.contains("N")) {
                     break;
                 }
-            } catch(Exception e) {
-
-            }
+            } catch(Exception ignored) {}
         }
-    while(true);
+    while(rollTotal + getScore() < Prog1.SCORE_MAX);
         System.out.println("Player " + getName() + " has decided to end their turn by pressing 0.");
         return rollTotal;
     }
