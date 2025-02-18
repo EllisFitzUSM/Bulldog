@@ -13,7 +13,7 @@ public class Prog6 {
         scanner.nextLine();
 
         for (int i = 0; i < numPlayers; i++) {
-            System.out.println("Player " + (i + 1) + " setup:");
+            System.out.println("humansrc.Player " + (i + 1) + " setup:");
             System.out.println("Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique, 6. AI");
             int type = scanner.nextInt();
             scanner.nextLine();

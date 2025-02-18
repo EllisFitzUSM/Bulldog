@@ -3,22 +3,22 @@ package llmsrc; /********************************************************/
 /* Login ID: david.b.levine@maine.edu                   */
 /* COS 497, Summer 2024                                 */
 /* Programming Assignment 6                             */
-/* abstract Player class: holds generic info about a    */
+/* abstract humansrc.Player class: holds generic info about a    */
 /*           player of the game Bulldog                 */
 /*      See Kettering University, CS-101, Prog 6        */
 /********************************************************/
 
 public abstract class Player {
 	
-	private String name;   	// The name of the Player
+	private String name;   	// The name of the humansrc.Player
 	
-	private int score;		// The score earned by this Player during the game
+	private int score;		// The score earned by this humansrc.Player during the game
 	
 	/********************************************************/
-	/* Constructor: Player                                  */
-	/* Purpose: Create a new Player object                  */
+	/* Constructor: humansrc.Player                                  */
+	/* Purpose: Create a new humansrc.Player object                  */
 	/* Parameters:                                          */
-	/*   String name:  the name of the Player being created */
+	/*   String name:  the name of the humansrc.Player being created */
 	/********************************************************/
 	public Player (String name) {
 		this.name = name;
@@ -27,11 +27,11 @@ public abstract class Player {
 	
 	/********************************************************/
 	/* Method:  getName                                     */
-	/* Purpose: return the name of this Player              */
+	/* Purpose: return the name of this humansrc.Player              */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
-	/*   the name of this Player                            */
+	/*   the name of this humansrc.Player                            */
 	/********************************************************/
 	public String getName() {
 		return this.name;
@@ -39,11 +39,11 @@ public abstract class Player {
 
 	/********************************************************/
 	/* Method:  getScore                                    */
-	/* Purpose: return the current score of this Player     */
+	/* Purpose: return the current score of this humansrc.Player     */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
-	/*   the current score of this Player                   */
+	/*   the current score of this humansrc.Player                   */
 	/********************************************************/
 	public int getScore() {
 		return this.score;
@@ -51,7 +51,7 @@ public abstract class Player {
 	
 	/********************************************************/
 	/* Method:  setScore                                    */
-	/* Purpose: set the current score of this Player        */
+	/* Purpose: set the current score of this humansrc.Player        */
 	/* Parameters:                                          */
 	/*   int score - the new value of the score             */
 	/* Returns:                                             */
@@ -64,7 +64,7 @@ public abstract class Player {
 	/********************************************************/
 	/* Method:  play                                        */
 	/* Purpose: abstract method that encapsulates one turn  */
-	/*          for this Player                             */
+	/*          for this humansrc.Player                             */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */

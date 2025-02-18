@@ -1,9 +1,9 @@
 Enter number of players: 2
-Player 1 setup:
+humansrc.Player 1 setup:
 Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique
 3
 Enter player's name: Fifteen
-Player 2 setup:
+humansrc.Player 2 setup:
 Choose type: 1. Human, 2. Random, 3. Fifteen, 4. Wimp, 5. Unique
 4
 Enter player's name: Wimp
@@ -17,7 +17,7 @@ Current Scores:
    Wimp: 0
 
 --- Wimp's turn ---
-   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   humansrc.Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
    Wimp scores 2 this turn. Total: 2
 
 Current Scores:
@@ -40,7 +40,7 @@ Current Scores:
    Wimp: 2
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 7
 
 Current Scores:
@@ -56,7 +56,7 @@ Current Scores:
    Wimp: 7
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 12
 
 Current Scores:
@@ -72,7 +72,7 @@ Current Scores:
    Wimp: 12
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 17
 
 Current Scores:
@@ -91,7 +91,7 @@ Current Scores:
    Wimp: 17
 
 --- Wimp's turn ---
-   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   humansrc.Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
    Wimp scores 4 this turn. Total: 21
 
 Current Scores:
@@ -107,7 +107,7 @@ Current Scores:
    Wimp: 21
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 26
 
 Current Scores:
@@ -123,7 +123,7 @@ Current Scores:
    Wimp: 26
 
 --- Wimp's turn ---
-   Player Wimp rolled 6 and scored 0 for the turn.
+   humansrc.Player Wimp rolled 6 and scored 0 for the turn.
    Wimp scores 0 this turn. Total: 26
 
 Current Scores:
@@ -145,7 +145,7 @@ Current Scores:
    Wimp: 26
 
 --- Wimp's turn ---
-   Player Wimp rolled 6 and scored 0 for the turn.
+   humansrc.Player Wimp rolled 6 and scored 0 for the turn.
    Wimp scores 0 this turn. Total: 26
 
 Current Scores:
@@ -166,7 +166,7 @@ Current Scores:
    Wimp: 26
 
 --- Wimp's turn ---
-   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   humansrc.Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
    Wimp scores 1 this turn. Total: 27
 
 Current Scores:
@@ -183,7 +183,7 @@ Current Scores:
    Wimp: 27
 
 --- Wimp's turn ---
-   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   humansrc.Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
    Wimp scores 3 this turn. Total: 30
 
 Current Scores:
@@ -199,7 +199,7 @@ Current Scores:
    Wimp: 30
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 35
 
 Current Scores:
@@ -221,7 +221,7 @@ Current Scores:
    Wimp: 35
 
 --- Wimp's turn ---
-   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   humansrc.Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
    Wimp scores 4 this turn. Total: 39
 
 Current Scores:
@@ -239,7 +239,7 @@ Current Scores:
    Wimp: 39
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 44
 
 Current Scores:
@@ -260,7 +260,7 @@ Current Scores:
    Wimp: 44
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 49
 
 Current Scores:
@@ -281,7 +281,7 @@ Current Scores:
    Wimp: 49
 
 --- Wimp's turn ---
-   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   humansrc.Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
    Wimp scores 4 this turn. Total: 53
 
 Current Scores:
@@ -298,7 +298,7 @@ Current Scores:
    Wimp: 53
 
 --- Wimp's turn ---
-   Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
+   humansrc.Player Wimp rolled 4 and chose not to continue, scoring 4 for the turn.
    Wimp scores 4 this turn. Total: 57
 
 Current Scores:
@@ -314,7 +314,7 @@ Current Scores:
    Wimp: 57
 
 --- Wimp's turn ---
-   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   humansrc.Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
    Wimp scores 3 this turn. Total: 60
 
 Current Scores:
@@ -331,7 +331,7 @@ Current Scores:
    Wimp: 60
 
 --- Wimp's turn ---
-   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   humansrc.Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
    Wimp scores 1 this turn. Total: 61
 
 Current Scores:
@@ -348,7 +348,7 @@ Current Scores:
    Wimp: 61
 
 --- Wimp's turn ---
-   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   humansrc.Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
    Wimp scores 2 this turn. Total: 63
 
 Current Scores:
@@ -367,7 +367,7 @@ Current Scores:
    Wimp: 63
 
 --- Wimp's turn ---
-   Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
+   humansrc.Player Wimp rolled 3 and chose not to continue, scoring 3 for the turn.
    Wimp scores 3 this turn. Total: 66
 
 Current Scores:
@@ -385,7 +385,7 @@ Current Scores:
    Wimp: 66
 
 --- Wimp's turn ---
-   Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
+   humansrc.Player Wimp rolled 1 and chose not to continue, scoring 1 for the turn.
    Wimp scores 1 this turn. Total: 67
 
 Current Scores:
@@ -405,7 +405,7 @@ Current Scores:
    Wimp: 67
 
 --- Wimp's turn ---
-   Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
+   humansrc.Player Wimp rolled 5 and chose not to continue, scoring 5 for the turn.
    Wimp scores 5 this turn. Total: 72
 
 Current Scores:
@@ -425,7 +425,7 @@ Current Scores:
    Wimp: 72
 
 --- Wimp's turn ---
-   Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
+   humansrc.Player Wimp rolled 2 and chose not to continue, scoring 2 for the turn.
    Wimp scores 2 this turn. Total: 74
 
 Current Scores:

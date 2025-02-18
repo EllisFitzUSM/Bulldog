@@ -23,7 +23,7 @@ public class HumanPlayer extends Player {
             System.out.print("   Continue? (Y/N): ");
             String input = scanner.nextLine().trim().toUpperCase();
             if (input.equals("N")) {
-                System.out.println("   Player chose to stop. Turn score: " + turnScore);
+                System.out.println("   humansrc.Player chose to stop. Turn score: " + turnScore);
                 return turnScore;
             }
         }
