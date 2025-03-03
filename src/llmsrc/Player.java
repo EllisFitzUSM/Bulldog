@@ -9,6 +9,12 @@ package llmsrc; /********************************************************/
 /********************************************************/
 
 public abstract class Player {
+
+	protected GameEventListener listener;
+
+	public void setGameEventListener(GameEventListener listener) {
+		this.listener = listener;
+	}
 	
 	private String name;   	// The name of the humansrc.Player
 	
@@ -72,5 +78,9 @@ public abstract class Player {
 	/*       which will be zero if a six was rolled         */
 	/********************************************************/
 	public abstract int play();
+
+	public int rollDie() {
+		return (int) (Math.random() * 6 + 1);
+	}
 	
 }

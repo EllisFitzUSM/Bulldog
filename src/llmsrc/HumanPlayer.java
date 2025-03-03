@@ -3,7 +3,8 @@ package llmsrc;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
-    private static Scanner scanner = new Scanner(System.in);
+    private volatile boolean decision;
+    private volatile boolean decisionMade;
 
     public HumanPlayer(String name) {
         super(name);
@@ -11,21 +12,35 @@ public class HumanPlayer extends Player {
 
     public int play() {
         int turnScore = 0;
+        decisionMade = false;
+
         while (true) {
-            int roll = (int) (Math.random() * 6 + 1);
-            System.out.print("   Rolled " + roll);
+            int roll = rollDie();
+            listener.onRoll(this, roll);
+
             if (roll == 6) {
-                System.out.println(" Scored 0 for the turn.");
+                listener.onMessage("Rolled a 6! Turn over.");
                 return 0;
             }
+
             turnScore += roll;
-            System.out.println(" Current turn score: " + turnScore);
-            System.out.print("   Continue? (Y/N): ");
-            String input = scanner.nextLine().trim().toUpperCase();
-            if (input.equals("N")) {
-                System.out.println("   humansrc.Player chose to stop. Turn score: " + turnScore);
+            listener.onTurnDecision(this, turnScore);
+
+            // Wait for user decision
+            while (!decisionMade) {
+                try { Thread.sleep(100); }
+                catch (InterruptedException ignored) {}
+            }
+
+            if (!decision) {
                 return turnScore;
             }
+            decisionMade = false;
         }
+    }
+
+    public void makeDecision(boolean decision) {
+        this.decision = decision;
+        this.decisionMade = true;
     }
 }
