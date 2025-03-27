@@ -1,18 +1,17 @@
-package humansrc; /********************************************************/
+/********************************************************/
 /* David Levine                                         */
 /* Login ID: david.b.levine@maine.edu                   */
 /* COS 497, Summer 2024                                 */
 /* Programming Assignment 6                             */
-/* humansrc.WimpPlayer class: extends humansrc.Player class               */
-/*           A humansrc.WimpPlayer always rolls the die once     */
+/* WimpPlayer class: extends Player class               */
+/*           A WimpPlayer always rolls the die once     */
 /*      See Kettering University, CS-101, Prog 6        */
 /********************************************************/
-
 public class WimpPlayer extends Player {
 
 	/********************************************************/
-	/* Constructor: humansrc.WimpPlayer                              */
-	/* Purpose: Create a default humansrc.WimpPlayer                 */
+	/* Constructor: WimpPlayer                              */
+	/* Purpose: Create a default WimpPlayer                 */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/********************************************************/
@@ -21,10 +20,10 @@ public class WimpPlayer extends Player {
 	}
 
 	/********************************************************/
-	/* Constructor: humansrc.WimpPlayer                              */
-	/* Purpose: Create a new humansrc.WimpPlayer object              */
+	/* Constructor: WimpPlayer                              */
+	/* Purpose: Create a new WimpPlayer object              */
 	/* Parameters:                                          */
-	/*   String name:  the name of the humansrc.Player being created */
+	/*   String name:  the name of the Player being created */
 	/********************************************************/
 	public WimpPlayer (String name) {
 		super(name);
@@ -32,8 +31,8 @@ public class WimpPlayer extends Player {
 
 	/********************************************************/
 	/* Method:  play                                        */
-	/* Purpose: Take one turn for this humansrc.Player               */
-	/*          One turn for a humansrc.WimpPlayer is a single roll  */
+	/* Purpose: Take one turn for this Player               */
+	/*          One turn for a WimpPlayer is a single roll  */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
@@ -41,8 +40,8 @@ public class WimpPlayer extends Player {
 	/*       which will be zero if a six was rolled         */
 	/********************************************************/
 	public int play() {
-		int roll = (int) (Math.random()*6 + 1);
-		System.out.print("   humansrc.Player " + getName() + " rolled " + roll );
+		int roll = die.roll();
+		System.out.print("   Player " + getName() + " rolled " + roll );
 		if (roll != 6) {
 			System.out.println(" and chose not to continue, scoring " + roll + " for the turn.");
 		} else {

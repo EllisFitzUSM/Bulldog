@@ -1,12 +1,7 @@
-package llmsrc;
-
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.DocumentFilter;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Objects;
 
 /**
@@ -37,11 +32,6 @@ public class Prog6 implements GameEventListener {
     private HumanPlayer currentHumanPlayer;
 
     /**
-     * Custom DocumentFilter that restricts input to numeric characters only.
-     * Used for the player count input field to ensure valid integer values.
-     */
-
-    /**
      * Main entry point for the application.
      * Invokes the GUI creation on the Event Dispatch Thread.
      */
@@ -49,6 +39,9 @@ public class Prog6 implements GameEventListener {
         SwingUtilities.invokeLater(() -> new Prog6().initialize());
     }
 
+    /**
+     * Initialize the Game
+     */
     private void initialize() {
         frame = new JFrame("Bulldog Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +62,7 @@ public class Prog6 implements GameEventListener {
 
     /**
      * Creates the Title Panel which is used as the card
-     * @return
+     * @return Title JPanel
      */
     private JPanel createTitlePanel() {
         // Title
@@ -101,6 +94,10 @@ public class Prog6 implements GameEventListener {
         return titlePanel;
     }
 
+    /**
+     *
+     * @param countField The text field used 
+     */
     private void onStartOrEnter(JTextField countField) {
         try {
             numPlayers = Integer.parseInt(countField.getText());
@@ -122,6 +119,7 @@ public class Prog6 implements GameEventListener {
 
     /**
      * Dynamically creates and configures the player type selection panel.
+     * @return Player Type Panel
      */
     private JPanel createPlayerTypePanel() {
         players = new ArrayList<>();
@@ -189,9 +187,9 @@ public class Prog6 implements GameEventListener {
     }
 
     /**
-     *
-     * @param name
-     * @return
+     * Checks if a string is a duplicate of other names.
+     * @param name the potential name to check if it is a duplicate
+     * @return true if duplicate, false if not duplicate
      */
     private boolean isDuplicatedName(String name) {
         for(Player player : players) {
@@ -235,8 +233,8 @@ public class Prog6 implements GameEventListener {
     }
 
     /**
-     *
-     * @return
+     * Creates and initializes the Game Panel
+     * @return Game JPanel
      */
     private JPanel createGamePanel() {
         JPanel gamePanel = new JPanel(new BorderLayout()) {
@@ -355,11 +353,20 @@ public class Prog6 implements GameEventListener {
         }
     }
 
+    /**
+     * Simple function to add a message to the "visual console"
+     * @param message
+     */
     private void addConsoleMessage(String message) {
         consoleOutput.append(message + "\n");
         consoleOutput.setCaretPosition(consoleOutput.getDocument().getLength());
     }
 
+    /**
+     *
+     * @param player
+     * @param roll
+     */
     @Override
     public void onRoll(Player player, int roll) {
         SwingUtilities.invokeLater(() -> {
@@ -367,6 +374,10 @@ public class Prog6 implements GameEventListener {
         });
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(String message) {
         SwingUtilities.invokeLater(() -> {
@@ -374,6 +385,11 @@ public class Prog6 implements GameEventListener {
         });
     }
 
+    /**
+     *
+     * @param player
+     * @param currentTurnScore
+     */
     @Override
     public void onTurnDecision(Player player, int currentTurnScore) {
         SwingUtilities.invokeLater(() -> {
@@ -387,6 +403,11 @@ public class Prog6 implements GameEventListener {
         });
     }
 
+    /**
+     *
+     * @param player
+     * @param scoreAdded
+     */
     @Override
     public void onTurnEnd(Player player, int scoreAdded) {
         SwingUtilities.invokeLater(() -> {
@@ -416,23 +437,4 @@ public class Prog6 implements GameEventListener {
         noButton.setVisible(false);
     }
 
-    /**
-     *
-     */
-    static class NumericDocumentFilter extends javax.swing.text.DocumentFilter {
-        @Override
-        public void insertString(DocumentFilter.FilterBypass fb, int offset,
-                                 String string, AttributeSet attr) throws javax.swing.text.BadLocationException {
-            if (string.matches("\\d*")) {
-                super.insertString(fb, offset, string, attr);
-            }
-        }
-        @Override
-        public void replace(DocumentFilter.FilterBypass fb, int offset, int length,
-                            String text, AttributeSet attrs) throws javax.swing.text.BadLocationException {
-            if (text.matches("\\d*")) {
-                super.replace(fb, offset, length, text, attrs);
-            }
-        }
-    }
 }

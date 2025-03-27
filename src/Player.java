@@ -1,24 +1,28 @@
-package humansrc; /********************************************************/
+/********************************************************/
 /* David Levine                                         */
 /* Login ID: david.b.levine@maine.edu                   */
 /* COS 497, Summer 2024                                 */
 /* Programming Assignment 6                             */
-/* abstract humansrc.Player class: holds generic info about a    */
+/* abstract Player class: holds generic info about a    */
 /*           player of the game Bulldog                 */
 /*      See Kettering University, CS-101, Prog 6        */
 /********************************************************/
 
 public abstract class Player {
+
+	protected Dice die = new Dice(6);
+
+	protected GameEventListener listener;
 	
-	private String name;   	// The name of the humansrc.Player
+	private String name;   	// The name of the Player
 	
-	private int score;		// The score earned by this humansrc.Player during the game
+	private int score;		// The score earned by this Player during the game
 	
 	/********************************************************/
-	/* Constructor: humansrc.Player                                  */
-	/* Purpose: Create a new humansrc.Player object                  */
+	/* Constructor: Player                                  */
+	/* Purpose: Create a new Player object                  */
 	/* Parameters:                                          */
-	/*   String name:  the name of the humansrc.Player being created */
+	/*   String name:  the name of the Player being created */
 	/********************************************************/
 	public Player (String name) {
 		this.name = name;
@@ -27,11 +31,11 @@ public abstract class Player {
 	
 	/********************************************************/
 	/* Method:  getName                                     */
-	/* Purpose: return the name of this humansrc.Player              */
+	/* Purpose: return the name of this Player              */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
-	/*   the name of this humansrc.Player                            */
+	/*   the name of this Player                            */
 	/********************************************************/
 	public String getName() {
 		return this.name;
@@ -39,11 +43,11 @@ public abstract class Player {
 
 	/********************************************************/
 	/* Method:  getScore                                    */
-	/* Purpose: return the current score of this humansrc.Player     */
+	/* Purpose: return the current score of this Player     */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
-	/*   the current score of this humansrc.Player                   */
+	/*   the current score of this Player                   */
 	/********************************************************/
 	public int getScore() {
 		return this.score;
@@ -51,7 +55,7 @@ public abstract class Player {
 	
 	/********************************************************/
 	/* Method:  setScore                                    */
-	/* Purpose: set the current score of this humansrc.Player        */
+	/* Purpose: set the current score of this Player        */
 	/* Parameters:                                          */
 	/*   int score - the new value of the score             */
 	/* Returns:                                             */
@@ -64,7 +68,7 @@ public abstract class Player {
 	/********************************************************/
 	/* Method:  play                                        */
 	/* Purpose: abstract method that encapsulates one turn  */
-	/*          for this humansrc.Player                             */
+	/*          for this Player                             */
 	/* Parameters:                                          */
 	/*   none                                               */
 	/* Returns:                                             */
@@ -72,5 +76,14 @@ public abstract class Player {
 	/*       which will be zero if a six was rolled         */
 	/********************************************************/
 	public abstract int play();
+
+	/**
+	 * Sets the GameEventListener to the Prog6 Class Instance
+	 * @author DeepSeek
+	 * @param listener Class that implements the GameEventListener interface
+	 */
+	public void setGameEventListener(GameEventListener listener) {
+		this.listener = listener;
+	}
 	
 }

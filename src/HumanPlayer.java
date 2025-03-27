@@ -1,7 +1,3 @@
-package llmsrc;
-
-import java.util.Scanner;
-
 public class HumanPlayer extends Player {
     private volatile boolean decision;
     private volatile boolean decisionMade;
@@ -15,7 +11,7 @@ public class HumanPlayer extends Player {
         decisionMade = false;
 
         while (true) {
-            int roll = rollDie();
+            int roll = die.roll();
             listener.onRoll(this, roll);
 
             if (roll == 6) {

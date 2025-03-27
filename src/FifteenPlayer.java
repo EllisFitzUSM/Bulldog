@@ -1,5 +1,3 @@
-package llmsrc;
-
 public class FifteenPlayer extends Player {
     public FifteenPlayer(String name) {
         super(name);
@@ -8,7 +6,7 @@ public class FifteenPlayer extends Player {
     public int play() {
         int turnScore = 0;
         while (true) {
-            int roll = (int) (Math.random() * 6 + 1);
+            int roll = die.roll();
             System.out.print("   Rolled " + roll);
             if (roll == 6) {
                 System.out.println(" Scored 0 for the turn.");
