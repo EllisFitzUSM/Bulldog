@@ -8,9 +8,10 @@ public class RandomPlayer extends Player {
     /**
      * Creates a random player with the given name.
      * @param name Name to assign to player.
+     * @param die Dice to use
      */
-    public RandomPlayer(String name) {
-        super(name);
+    public RandomPlayer(String name, DiceSuper die) {
+        super(name, die);
     }
 
     /**
@@ -26,7 +27,7 @@ public class RandomPlayer extends Player {
                 return 0;
             }
             turnScore += roll;
-            if (Math.random() < 0.5) {
+            if (RandomSingleton.getInstance().nextFloat() < 0.5) {
                 return turnScore;
             }
         }

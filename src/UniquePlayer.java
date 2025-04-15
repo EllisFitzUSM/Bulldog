@@ -6,18 +6,12 @@
 public class UniquePlayer extends Player {
 
     /**
-     * Create a UniquePlayer with a default name
-     */
-    public UniquePlayer() {
-        this("Human");
-    }
-
-    /**
      * Create a UniquePlayer with a name
      * @param name name to give to UniquePlayer
+     * @param die Dice to use
      */
-    public UniquePlayer(String name) {
-        super(name);
+    public UniquePlayer(String name, DiceSuper die) {
+        super(name, die);
     }
 
     /**

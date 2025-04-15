@@ -10,30 +10,29 @@ import java.util.Objects;
  * 1. Title screen
  * 2. Player count input
  * 3. Player type selection
- * 4. Game execution (console-based)
+ * 4. Game execution JavaSwing
+ * 5. Scoreboard JDialog & JTable
  * @author DeepSeek & Ellis Fitzgerald
- * @version 0.4
+ * @version 0.7
  */
-public class Prog6 implements GameEventListener {
-    private static final int MESSAGE_DELAY = 1000;
-    private static final int WINNING_SCORE = 104;
+public class Main implements GameEventListener {
+    private final int WINNING_SCORE = 104;
     private JFrame frame;
     private CardLayout cardLayout;
     private JPanel cards;
     private GameModel model;
     private int numPlayers;
-    private int currentPlayerIndex;
     private JTextArea consoleOutput;
     private JButton yesButton;
     private JButton noButton;
-    private Timer messageTimer;
+    private int playerCreationIndex;
 
     /**
      * Main entry point for the application.
      * Invokes the GUI creation on the Event Dispatch Thread.
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Prog6().initialize());
+        SwingUtilities.invokeLater(() -> new Main().initialize());
     }
 
     /**
@@ -41,6 +40,7 @@ public class Prog6 implements GameEventListener {
      */
     private void initialize() {
         model = new GameModel();
+        Referee.getInstance().setWinningScore(WINNING_SCORE);
         frame = new JFrame("Bulldog Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
@@ -119,7 +119,6 @@ public class Prog6 implements GameEventListener {
      */
     private JPanel createPlayerTypePanel() {
         model = new GameModel();
-        currentPlayerIndex = 0;
 
         JPanel playerTypePanel = new JPanel(new BorderLayout(0, 20));
         JPanel currentPlayerPanel = new JPanel(new GridBagLayout());
@@ -127,7 +126,7 @@ public class Prog6 implements GameEventListener {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridwidth = GridBagConstraints.REMAINDER;
 
-        JLabel instructionLabel = new JLabel("Configure Player " + (currentPlayerIndex + 1), SwingConstants.CENTER);
+        JLabel instructionLabel = new JLabel("Configure Player " + (playerCreationIndex + 1), SwingConstants.CENTER);
         JLabel typeLabel = new JLabel("Select player type:");
         String[] playerTypes = {"Human", "Random", "Fifteen", "Wimp", "Unique", "AIUnique"};
         JComboBox<String> playerTypeComboBox = new JComboBox<>(playerTypes);
@@ -143,14 +142,14 @@ public class Prog6 implements GameEventListener {
         nextButton.addActionListener(e -> {
             while (true) {
                 String name = (String) JOptionPane.showInputDialog(frame,
-                        "Enter name for Player " + (currentPlayerIndex + 1),
+                        "Enter name for Player " + (playerCreationIndex + 1),
                         "Player Name",
                         JOptionPane.PLAIN_MESSAGE,
                         null,
                         null,
-                        "Player " + (currentPlayerIndex + 1));
+                        "Player " + (playerCreationIndex + 1));
                 if (name == null || name.trim().isEmpty()) {
-                    name = "Player " + (currentPlayerIndex + 1);
+                    name = "Player " + (playerCreationIndex + 1);
                 }
                 if (!isDuplicatedName(name)) {
                     Player player = createPlayer(
@@ -165,10 +164,10 @@ public class Prog6 implements GameEventListener {
                             JOptionPane.ERROR_MESSAGE);
                 }
             }
-            currentPlayerIndex++;
+            playerCreationIndex++;
 
-            if (currentPlayerIndex < numPlayers) {
-                instructionLabel.setText("Configure Player " + (currentPlayerIndex + 1));
+            if (playerCreationIndex < numPlayers) {
+                instructionLabel.setText("Configure Player " + (playerCreationIndex + 1));
                 playerTypeComboBox.setSelectedIndex(0);
             } else {
                 startGame();
@@ -199,27 +198,28 @@ public class Prog6 implements GameEventListener {
      */
     private Player createPlayer(String type, String name) {
         Player player;
+        DiceSuper die = new PsuedoRandomDice(6);
         switch (type) {
             case "Human":
-                player = new HumanPlayer(name);
+                player = new HumanPlayer(name, die);
                 break;
             case "Random":
-                player = new RandomPlayer(name);
+                player = new RandomPlayer(name, die);
                 break;
             case "Fifteen":
-                player = new FifteenPlayer(name);
+                player = new FifteenPlayer(name, die);
                 break;
             case "Wimp":
-                player = new WimpPlayer(name);
+                player = new WimpPlayer(name, die);
                 break;
             case "Unique":
-                player = new UniquePlayer(name);
+                player = new UniquePlayer(name, die);
                 break;
             case "AIUnique":
-                player = new AIPlayer(name);
+                player = new AIPlayer(name, die);
                 break;
             default:
-                player = new RandomPlayer(name);
+                player = new RandomPlayer(name, die);
                 break;
         }
         player.setGameEventListener(this);
@@ -263,15 +263,15 @@ public class Prog6 implements GameEventListener {
         gamePanel.add(consolePanel, BorderLayout.SOUTH);
 
         yesButton.addActionListener(e -> {
-            if (model.getPlayer(currentPlayerIndex) instanceof HumanPlayer) {
-                HumanPlayer humanPlayer = (HumanPlayer) model.getPlayer(currentPlayerIndex);
+            if (Referee.getInstance().getCurrentPlayer(model) instanceof HumanPlayer) {
+                HumanPlayer humanPlayer = (HumanPlayer) Referee.getInstance().getCurrentPlayer(model);
                 humanPlayer.makeDecision(true);
             }
         });
 
         noButton.addActionListener(e -> {
-            if (model.getPlayer(currentPlayerIndex) instanceof HumanPlayer) {
-                HumanPlayer humanPlayer = (HumanPlayer) model.getPlayer(currentPlayerIndex);
+            if (Referee.getInstance().getCurrentPlayer(model) instanceof HumanPlayer) {
+                HumanPlayer humanPlayer = (HumanPlayer) Referee.getInstance().getCurrentPlayer(model);
                 humanPlayer.makeDecision(false);
             }
         });
@@ -286,60 +286,11 @@ public class Prog6 implements GameEventListener {
      */
     private void startGame() {
         cardLayout.show(cards, "Game");
-        currentPlayerIndex = 0;
-        startNextTurn();
+        Referee.getInstance().startGame(model, this);
+//        currentPlayerIndex = 0;
+//        startNextTurn();
     }
 
-    /**
-     * Called when it is a new players turn.
-     * Will give expected display for a player's turn.
-     */
-    private void startNextTurn() {
-        Player currentPlayer = model.getPlayer(currentPlayerIndex);
-        yesButton.setVisible(false);
-        noButton.setVisible(false);
-
-        consoleOutput.setText("");
-        addConsoleMessage("It is " + currentPlayer.getName() + "'s turn!\n");
-        addConsoleMessage("Total Score: " + currentPlayer.getScore());
-
-        messageTimer = new Timer(MESSAGE_DELAY, e -> {
-            messageTimer.stop();
-            new Thread(() -> executePlayerTurn(currentPlayer)).start();
-        });
-        messageTimer.start();
-    }
-
-    /**
-     * Called when a player is expected to execute their turn.
-     * @param player The player that will have their play method called.
-     */
-    private void executePlayerTurn(Player player) {
-        new Thread(() -> {
-            int result = player.play();
-            SwingUtilities.invokeLater(() -> handleTurnResult(player, result));
-        }).start();
-    }
-
-    /**
-     * Called when a Player has decided (or was forced to) end their turn.
-     * @param player The player who just executed their turn.
-     * @param turnScore The amount of score they earned this turn.
-     */
-    private void handleTurnResult(Player player, int turnScore) {
-        model.addToPlayerScore(currentPlayerIndex, turnScore);
-        addConsoleMessage("\nTurn Results:");
-        addConsoleMessage("Score added: " + turnScore);
-        addConsoleMessage("New total: " + model.getPlayerScore(currentPlayerIndex) + "\n");
-
-        if (model.getPlayerScore(currentPlayerIndex) >= WINNING_SCORE) {
-            gameOver(player);
-        } else {
-            showScoreboard();
-            currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
-            startNextTurn();
-        }
-    }
 
     /**
      * Simple function to add a message to the "visual console"
@@ -348,6 +299,38 @@ public class Prog6 implements GameEventListener {
     private void addConsoleMessage(String message) {
         consoleOutput.append(message + "\n");
         consoleOutput.setCaretPosition(consoleOutput.getDocument().getLength());
+    }
+
+    /**
+     * Listener function which is called on a Player turn start
+     * @param player Player whose turn started
+     */
+    @Override
+    public void onTurnStart(Player player) {
+        yesButton.setVisible(false);
+        noButton.setVisible(false);
+
+        consoleOutput.setText("");
+        addConsoleMessage("It is " + Referee.getInstance().getCurrentPlayer(model).getName() + "'s turn!\n");
+        addConsoleMessage("Total Score: " + Referee.getInstance().getCurrentPlayer(model).getScore());
+    }
+
+    /**
+     * Listener function which is called on a Player turn end.
+     * @param player Player whose turn ended
+     * @param turnScore how much score they were given this turn.
+     */
+    @Override
+    public void onTurnEnd(Player player, int turnScore) {
+        addConsoleMessage("\nTurn Results:");
+        addConsoleMessage("Score added: " + turnScore);
+        addConsoleMessage("New total: " + player.getScore() + "\n");
+
+//        if (player.getScore() >= WINNING_SCORE) {
+//            onGameOver(player);
+//        } else {
+        showScoreboard();
+//        }
     }
 
     /**
@@ -378,11 +361,8 @@ public class Prog6 implements GameEventListener {
         });
     }
 
-    /**
-     * Called when a player wins the game
-     * @param winner the Player who reached the score
-     */
-    private void gameOver(Player winner) {
+    @Override
+    public void onGameOver(Player winner) {
         addConsoleMessage("\n\n!!! GAME OVER !!!");
         addConsoleMessage(winner.getName() + " WINS WITH " + winner.getScore() + " POINTS!");
         yesButton.setVisible(false);
@@ -398,5 +378,67 @@ public class Prog6 implements GameEventListener {
             dialog.setVisible(true);
         });
     }
+
+    //    /**
+//     * Called when a player wins the game
+//     * @param winner the Player who reached the score
+//     */
+//    private void gameOver(Player winner) {
+//        addConsoleMessage("\n\n!!! GAME OVER !!!");
+//        addConsoleMessage(winner.getName() + " WINS WITH " + winner.getScore() + " POINTS!");
+//        yesButton.setVisible(false);
+//        noButton.setVisible(false);
+//    }
+
+    /**
+     * Called when it is a new players turn.
+     * Will give expected display for a player's turn.
+     */
+//    private void startNextTurn() {
+//        Player currentPlayer = model.getPlayer(currentPlayerIndex);
+//        yesButton.setVisible(false);
+//        noButton.setVisible(false);
+//
+//        consoleOutput.setText("");
+//        addConsoleMessage("It is " + currentPlayer.getName() + "'s turn!\n");
+//        addConsoleMessage("Total Score: " + currentPlayer.getScore());
+//
+//        messageTimer = new Timer(MESSAGE_DELAY, e -> {
+//            messageTimer.stop();
+//            new Thread(() -> executePlayerTurn(currentPlayer)).start();
+//        });
+//        messageTimer.start();
+//    }
+//
+//    /**
+//     * Called when a player is expected to execute their turn.
+//     * @param player The player that will have their play method called.
+//     */
+//    private void executePlayerTurn(Player player) {
+//        new Thread(() -> {
+//            int result = player.play();
+//            SwingUtilities.invokeLater(() -> handleTurnResult(player, result));
+//        }).start();
+//    }
+//
+//    /**
+//     * Called when a Player has decided (or was forced to) end their turn.
+//     * @param player The player who just executed their turn.
+//     * @param turnScore The amount of score they earned this turn.
+//     */
+//    private void handleTurnResult(Player player, int turnScore) {
+//        model.addToPlayerScore(currentPlayerIndex, turnScore);
+//        addConsoleMessage("\nTurn Results:");
+//        addConsoleMessage("Score added: " + turnScore);
+//        addConsoleMessage("New total: " + model.getPlayerScore(currentPlayerIndex) + "\n");
+//
+//        if (model.getPlayerScore(currentPlayerIndex) >= WINNING_SCORE) {
+//            gameOver(player);
+//        } else {
+//            showScoreboard();
+//            currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
+//            startNextTurn();
+//        }
+//    }
 
 }

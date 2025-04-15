@@ -11,22 +11,13 @@ public class WimpPlayer extends Player {
 
 	/********************************************************/
 	/* Constructor: WimpPlayer                              */
-	/* Purpose: Create a default WimpPlayer                 */
-	/* Parameters:                                          */
-	/*   none                                               */
-	/********************************************************/
-	public WimpPlayer () {
-		this("Wimp");
-	}
-
-	/********************************************************/
-	/* Constructor: WimpPlayer                              */
 	/* Purpose: Create a new WimpPlayer object              */
 	/* Parameters:                                          */
-	/*   String name:  the name of the Player being created */
+	/*  String name:   the name of the Player being created */
+	/*  DiceSuper die: 			 the dice to use in BullDog */
 	/********************************************************/
-	public WimpPlayer (String name) {
-		super(name);
+	public WimpPlayer (String name, DiceSuper die) {
+		super(name, die);
 	}
 
 	/********************************************************/

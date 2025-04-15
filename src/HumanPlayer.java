@@ -11,8 +11,8 @@ public class HumanPlayer extends Player {
      * Create a HumanPlayer with given name.
      * @param name Given name to assign to player
      */
-    public HumanPlayer(String name) {
-        super(name);
+    public HumanPlayer(String name, DiceSuper die) {
+        super(name, die);
     }
 
     /**
@@ -20,7 +20,6 @@ public class HumanPlayer extends Player {
      * @return The score to be added to this players overall score
      */
     public int play() {
-        System.out.println("Hello I am a human player");
         int turnScore = 0;
         decisionMade = false;
 

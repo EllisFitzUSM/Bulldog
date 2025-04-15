@@ -9,7 +9,7 @@
 /********************************************************/
 public abstract class Player {
 
-	protected Dice die = new Dice(6);
+	protected DiceSuper die;
 	protected GameEventListener listener;
 	private final String name;   	// The name of the Player
 	private int score;		// The score earned by this Player during the game
@@ -20,9 +20,10 @@ public abstract class Player {
 	/* Parameters:                                          */
 	/*   String name:  the name of the Player being created */
 	/********************************************************/
-	public Player (String name) {
+	public Player (String name, DiceSuper die) {
 		this.name = name;
 		this.score = 0;
+		this.die = die;
 	}
 	
 	/********************************************************/
