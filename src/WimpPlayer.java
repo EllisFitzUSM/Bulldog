@@ -41,14 +41,12 @@ public class WimpPlayer extends Player {
 	/********************************************************/
 	public int play() {
 		int roll = die.roll();
-		System.out.print("   Player " + getName() + " rolled " + roll );
+		listener.onRoll(this, roll);
 		if (roll != 6) {
-			System.out.println(" and chose not to continue, scoring " + roll + " for the turn.");
+			return roll;
 		} else {
-			roll = 0;
-			System.out.println(" and scored 0 for the turn.");
+			return 0;
 		}
-		return roll;
 	}
 
 }

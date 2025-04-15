@@ -6,16 +6,16 @@
 public class RandomPlayer extends Player {
 
     /**
-     *
-     * @param name
+     * Creates a random player with the given name.
+     * @param name Name to assign to player.
      */
     public RandomPlayer(String name) {
         super(name);
     }
 
     /**
-     *
-     * @return
+     * Plays the players turn.
+     * @return The score earned this turn.
      */
     public int play() {
         int turnScore = 0;
@@ -23,12 +23,10 @@ public class RandomPlayer extends Player {
             int roll = die.roll();
             listener.onRoll(this, roll);
             if (roll == 6) {
-                listener.onMessage("Rolled a 6! Turn over.");
                 return 0;
             }
             turnScore += roll;
             if (Math.random() < 0.5) {
-                listener.onMessage("Choosing to stop rolling");
                 return turnScore;
             }
         }

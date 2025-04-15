@@ -7,17 +7,13 @@
 /*           player of the game Bulldog                 */
 /*      See Kettering University, CS-101, Prog 6        */
 /********************************************************/
-
 public abstract class Player {
 
 	protected Dice die = new Dice(6);
-
 	protected GameEventListener listener;
-	
-	private String name;   	// The name of the Player
-	
+	private final String name;   	// The name of the Player
 	private int score;		// The score earned by this Player during the game
-	
+
 	/********************************************************/
 	/* Constructor: Player                                  */
 	/* Purpose: Create a new Player object                  */

@@ -1,21 +1,34 @@
+/**
+ * Bulldog player which when they score fifteen they end their turn.
+ * @author DeepSeek
+ * @version March 3rd 2025
+ */
 public class FifteenPlayer extends Player {
+
+    /**
+     * Create a Fifteen player with the given name.
+     * @param name Name to give to player
+     */
     public FifteenPlayer(String name) {
         super(name);
     }
 
+    /**
+     * Play a turn for this player.
+     * @return The score granted for this turn.
+     */
     public int play() {
         int turnScore = 0;
         while (true) {
             int roll = die.roll();
-            System.out.print("   Rolled " + roll);
+            listener.onRoll(this, roll);
             if (roll == 6) {
-                System.out.println(" Scored 0 for the turn.");
                 return 0;
+
             }
             turnScore += roll;
-            System.out.println(" Current turn score: " + turnScore);
+            listener.onRoll(this, roll);
             if (turnScore >= 15) {
-                System.out.println("   Reached 15, stopping. Turn score: " + turnScore);
                 return turnScore;
             }
         }

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -12,24 +11,22 @@ import java.util.Objects;
  * 2. Player count input
  * 3. Player type selection
  * 4. Game execution (console-based)
- *
  * @author DeepSeek & Ellis Fitzgerald
- * @version 0.2
+ * @version 0.4
  */
 public class Prog6 implements GameEventListener {
-    private static final int MESSAGE_DELAY = 1000;  // 1 second
+    private static final int MESSAGE_DELAY = 1000;
     private static final int WINNING_SCORE = 104;
     private JFrame frame;
     private CardLayout cardLayout;
     private JPanel cards;
-    private ArrayList<Player> players;
+    private GameModel model;
     private int numPlayers;
     private int currentPlayerIndex;
     private JTextArea consoleOutput;
     private JButton yesButton;
     private JButton noButton;
     private Timer messageTimer;
-    private HumanPlayer currentHumanPlayer;
 
     /**
      * Main entry point for the application.
@@ -43,6 +40,7 @@ public class Prog6 implements GameEventListener {
      * Initialize the Game
      */
     private void initialize() {
+        model = new GameModel();
         frame = new JFrame("Bulldog Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
@@ -50,7 +48,6 @@ public class Prog6 implements GameEventListener {
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
 
-        // Initialize panels
         cards.add(createTitlePanel(), "TitleScreen");
         cards.add(createPlayerTypePanel(), "PlayerSelection");
         cards.add(createGamePanel(), "Game");
@@ -62,10 +59,9 @@ public class Prog6 implements GameEventListener {
 
     /**
      * Creates the Title Panel which is used as the card
-     * @return Title JPanel
+     * @return JPanel Title JPanel
      */
     private JPanel createTitlePanel() {
-        // Title
         JPanel titlePanel = new JPanel(new BorderLayout(0, 20));
         JLabel titleLabel = new JLabel("Bulldog", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Serif", Font.BOLD, 64));
@@ -81,7 +77,7 @@ public class Prog6 implements GameEventListener {
         ((AbstractDocument) countField.getDocument()).setDocumentFilter(new NumericDocumentFilter());
         inputPanel.add(countField, gbc);
 
-        JButton startButton = new JButton("Start" );
+        JButton startButton = new JButton("Start");
         startButton.setHorizontalAlignment(SwingConstants.CENTER);
         startButton.setFont(new Font("Serif", Font.BOLD, 14));
         startButton.setPreferredSize(new Dimension(130, 50));
@@ -95,8 +91,8 @@ public class Prog6 implements GameEventListener {
     }
 
     /**
-     *
-     * @param countField The text field used 
+     * When the player count is entered or the start button is pressed.
+     * @param countField The text field used
      */
     private void onStartOrEnter(JTextField countField) {
         try {
@@ -122,12 +118,10 @@ public class Prog6 implements GameEventListener {
      * @return Player Type Panel
      */
     private JPanel createPlayerTypePanel() {
-        players = new ArrayList<>();
+        model = new GameModel();
         currentPlayerIndex = 0;
 
         JPanel playerTypePanel = new JPanel(new BorderLayout(0, 20));
-
-        // Current player panel
         JPanel currentPlayerPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -135,11 +129,10 @@ public class Prog6 implements GameEventListener {
 
         JLabel instructionLabel = new JLabel("Configure Player " + (currentPlayerIndex + 1), SwingConstants.CENTER);
         JLabel typeLabel = new JLabel("Select player type:");
-        String[] playerTypes = {"Human", "Random", "Fifteen", "Wimp", "Unique"};
+        String[] playerTypes = {"Human", "Random", "Fifteen", "Wimp", "Unique", "AIUnique"};
         JComboBox<String> playerTypeComboBox = new JComboBox<>(playerTypes);
         JButton nextButton = new JButton("Next Player");
 
-        // Add components
         currentPlayerPanel.add(instructionLabel, gbc);
         currentPlayerPanel.add(typeLabel, gbc);
         currentPlayerPanel.add(playerTypeComboBox, gbc);
@@ -147,7 +140,6 @@ public class Prog6 implements GameEventListener {
 
         playerTypePanel.add(currentPlayerPanel, BorderLayout.CENTER);
 
-        // Next button action
         nextButton.addActionListener(e -> {
             while (true) {
                 String name = (String) JOptionPane.showInputDialog(frame,
@@ -160,14 +152,13 @@ public class Prog6 implements GameEventListener {
                 if (name == null || name.trim().isEmpty()) {
                     name = "Player " + (currentPlayerIndex + 1);
                 }
-                // TODO: There should be a pop up that declares this as an error
                 if (!isDuplicatedName(name)) {
-                    players.add(createPlayer(
+                    Player player = createPlayer(
                             (String) Objects.requireNonNull(playerTypeComboBox.getSelectedItem()),
-                            name.trim()));
+                            name.trim());
+                    model.addPlayer(player);
                     break;
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(frame,
                             "Player already exists with that name!",
                             "Error",
@@ -192,8 +183,8 @@ public class Prog6 implements GameEventListener {
      * @return true if duplicate, false if not duplicate
      */
     private boolean isDuplicatedName(String name) {
-        for(Player player : players) {
-            if(name.equals(player.getName())) {
+        for (int i = 0; i < model.getNumberOfPlayers(); i++) {
+            if (name.equals(model.getPlayerName(i))) {
                 return true;
             }
         }
@@ -224,6 +215,9 @@ public class Prog6 implements GameEventListener {
             case "Unique":
                 player = new UniquePlayer(name);
                 break;
+            case "AIUnique":
+                player = new AIPlayer(name);
+                break;
             default:
                 player = new RandomPlayer(name);
                 break;
@@ -241,13 +235,11 @@ public class Prog6 implements GameEventListener {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Draw background texture (replace with actual image loading)
                 g.setColor(new Color(220, 220, 220));
                 g.fillRect(0, 0, getWidth(), getHeight());
             }
         };
 
-        // Visual Console setup
         JPanel consolePanel = new JPanel(new BorderLayout());
         consolePanel.setOpaque(false);
         consolePanel.setBackground(new Color(255, 255, 255, 200));
@@ -258,7 +250,7 @@ public class Prog6 implements GameEventListener {
         consoleOutput.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane consoleScroll = new JScrollPane(consoleOutput);
 
-        JPanel buttonPanel = new JPanel(); // TODO: Add default layout
+        JPanel buttonPanel = new JPanel();
         yesButton = new JButton("Yes");
         noButton = new JButton("No");
         buttonPanel.add(yesButton);
@@ -271,14 +263,16 @@ public class Prog6 implements GameEventListener {
         gamePanel.add(consolePanel, BorderLayout.SOUTH);
 
         yesButton.addActionListener(e -> {
-            if (currentHumanPlayer != null) {
-                currentHumanPlayer.makeDecision(true);
+            if (model.getPlayer(currentPlayerIndex) instanceof HumanPlayer) {
+                HumanPlayer humanPlayer = (HumanPlayer) model.getPlayer(currentPlayerIndex);
+                humanPlayer.makeDecision(true);
             }
         });
 
         noButton.addActionListener(e -> {
-            if (currentHumanPlayer != null) {
-                currentHumanPlayer.makeDecision(false);
+            if (model.getPlayer(currentPlayerIndex) instanceof HumanPlayer) {
+                HumanPlayer humanPlayer = (HumanPlayer) model.getPlayer(currentPlayerIndex);
+                humanPlayer.makeDecision(false);
             }
         });
 
@@ -301,7 +295,7 @@ public class Prog6 implements GameEventListener {
      * Will give expected display for a player's turn.
      */
     private void startNextTurn() {
-        Player currentPlayer = players.get(currentPlayerIndex);
+        Player currentPlayer = model.getPlayer(currentPlayerIndex);
         yesButton.setVisible(false);
         noButton.setVisible(false);
 
@@ -321,8 +315,10 @@ public class Prog6 implements GameEventListener {
      * @param player The player that will have their play method called.
      */
     private void executePlayerTurn(Player player) {
-        int result = player.play();
-        SwingUtilities.invokeLater(() -> handleTurnResult(player, result));
+        new Thread(() -> {
+            int result = player.play();
+            SwingUtilities.invokeLater(() -> handleTurnResult(player, result));
+        }).start();
     }
 
     /**
@@ -331,31 +327,23 @@ public class Prog6 implements GameEventListener {
      * @param turnScore The amount of score they earned this turn.
      */
     private void handleTurnResult(Player player, int turnScore) {
-        // Update player score
-        player.setScore(player.getScore() + turnScore);
-
-        // Display results
+        model.addToPlayerScore(currentPlayerIndex, turnScore);
         addConsoleMessage("\nTurn Results:");
         addConsoleMessage("Score added: " + turnScore);
-        addConsoleMessage("New total: " + player.getScore() + "\n");
+        addConsoleMessage("New total: " + model.getPlayerScore(currentPlayerIndex) + "\n");
 
-        // Check win condition
-        if (player.getScore() >= WINNING_SCORE) {
+        if (model.getPlayerScore(currentPlayerIndex) >= WINNING_SCORE) {
             gameOver(player);
         } else {
-            // Move to next player
-            currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
-
-            // Schedule next turn
-            messageTimer = new Timer(MESSAGE_DELAY, e -> startNextTurn());
-            messageTimer.setRepeats(false);
-            messageTimer.start();
+            showScoreboard();
+            currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
+            startNextTurn();
         }
     }
 
     /**
      * Simple function to add a message to the "visual console"
-     * @param message
+     * @param message the message to print/add to the console.
      */
     private void addConsoleMessage(String message) {
         consoleOutput.append(message + "\n");
@@ -363,9 +351,9 @@ public class Prog6 implements GameEventListener {
     }
 
     /**
-     *
-     * @param player
-     * @param roll
+     * Function to be called when player has rolled
+     * @param player The player that just rolled
+     * @param roll The score from the roll
      */
     @Override
     public void onRoll(Player player, int roll) {
@@ -375,66 +363,40 @@ public class Prog6 implements GameEventListener {
     }
 
     /**
-     *
-     * @param message
-     */
-    @Override
-    public void onMessage(String message) {
-        SwingUtilities.invokeLater(() -> {
-            consoleOutput.append(message + "\n");
-        });
-    }
-
-    /**
-     *
-     * @param player
-     * @param currentTurnScore
+     * When a player makes a turn decision. Limited to just a HumanPlayer for now.
+     * @param player Input player that made a decision on their turn.
+     * @param currentTurnScore Their currentTurnScore as of the decision.
      */
     @Override
     public void onTurnDecision(Player player, int currentTurnScore) {
         SwingUtilities.invokeLater(() -> {
             if (player instanceof HumanPlayer) {
-                currentHumanPlayer = (HumanPlayer) player;
                 yesButton.setVisible(true);
                 noButton.setVisible(true);
-                consoleOutput.append("Turn total: " + currentTurnScore +
-                        "\nRoll again?\n");
-            }
-        });
-    }
-
-    /**
-     *
-     * @param player
-     * @param scoreAdded
-     */
-    @Override
-    public void onTurnEnd(Player player, int scoreAdded) {
-        SwingUtilities.invokeLater(() -> {
-            player.setScore(player.getScore() + scoreAdded);
-            consoleOutput.append("Turn ended. Added: " + scoreAdded +
-                    "\nTotal: " + player.getScore() + "\n\n");
-            yesButton.setVisible(false);
-            noButton.setVisible(false);
-            currentHumanPlayer = null;
-
-            if (player.getScore() >= WINNING_SCORE) {
-                gameOver(player);
-            } else {
-                startNextTurn();
+                consoleOutput.append("Turn total: " + currentTurnScore + "\nRoll again?\n");
             }
         });
     }
 
     /**
      * Called when a player wins the game
-     * @param winner
+     * @param winner the Player who reached the score
      */
     private void gameOver(Player winner) {
         addConsoleMessage("\n\n!!! GAME OVER !!!");
         addConsoleMessage(winner.getName() + " WINS WITH " + winner.getScore() + " POINTS!");
         yesButton.setVisible(false);
         noButton.setVisible(false);
+    }
+
+    /**
+     * Called when the scoreboard is shown
+     */
+    private void showScoreboard() {
+        SwingUtilities.invokeLater(() -> {
+            ScoreboardViewer dialog = new ScoreboardViewer(frame, model);
+            dialog.setVisible(true);
+        });
     }
 
 }

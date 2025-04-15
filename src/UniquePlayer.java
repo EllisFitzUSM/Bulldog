@@ -27,16 +27,14 @@ public class UniquePlayer extends Player {
         int rollTotal = 0;
         do {
             int roll = die.roll();
-            System.out.print("Player " + getName() + " has a current turn total of " + rollTotal + " and just rolled a " + roll);
+            listener.onRoll(this, roll);
             if(roll == 6) {
-                System.out.println(" scoring 0 for their turn");
                 return 0;
             }
             rollTotal += roll;
-            System.out.println(" making their new round score " + rollTotal);
+//            listener.onMessage("Current score total: " + rollTotal);
         }
         while(getScore() == 0 && rollTotal < 5 || rollTotal + getScore() <= getScore() * 2);
-        System.out.println("Player " + getName() + " has decided to end their turn because they have doubled their score this turn.");
         return rollTotal;
     }
 
