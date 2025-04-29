@@ -21,7 +21,7 @@ Rules of Bulldog
 ---------------
 - Roll the die on your turn
 - The die's roll is added to your turn total
-- Roll as much as you would like
+- Roll as many times as you would like
 - Reach for the desired score value (104)
 ### The Catch ###
   - Rolling a 6 erases your turn total. Making every turn a 1/6 chance of you losing your progress.
