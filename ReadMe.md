@@ -2,7 +2,7 @@ Bulldog
 =============
 
 This is a repository dedicated to creating the game of Bulldog using OO (Object Oriented) Analysis and Design.
-Patterns and structures covered can be seen (imperfectly) are:
+Patterns and structures covered (imperfectly) are:
 - Model View Controller
 - Singleton
 - Strategy
