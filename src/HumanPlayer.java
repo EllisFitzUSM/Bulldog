@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Bulldog player which is controlled by a Human to determine continuing their turn.
  * @author DeepSeek
@@ -16,45 +19,69 @@ public class HumanPlayer extends Player {
     }
 
     /**
-     * Play a turn for this player.
-     * @return The score to be added to this players overall score
+     * Shows a dialog box to ask the human player if they want to continue their turn
+     * @param gameStatus Status of the game
+     * @param turnScore Current turn score
+     * @param rollsCount Number of rolls made
+     * @return true if player wants to continue, false otherwise
      */
-    public int play() {
-        int turnScore = 0;
-        decisionMade = false;
+    public boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount) {
+        // Create a custom dialog
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Continue Turn?");
+        dialog.setModal(true);
+        dialog.setLayout(new BorderLayout());
 
-        while (true) {
-            int roll = die.roll();
-            listener.onRoll(this, roll);
-            if (roll == 6) {
-                return 0;
-            }
+        // Create message
+        JLabel message = new JLabel(
+                "<html><center>" +
+                        "Current turn score: " + turnScore + "<br>" +
+                        "Rolls made: " + rollsCount + "<br>" +
+                        "Continue rolling?" +
+                        "</center></html>",
+                SwingConstants.CENTER
+        );
+        message.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-            turnScore += roll;
-            listener.onTurnDecision(this, turnScore);
-            synchronized(this) {
-                // Wait for user decision
-                while (!decisionMade) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ignored) {
-                    }
-                }
-            }
+        // Create buttons
+        JPanel buttonPanel = new JPanel();
+        JButton yesButton = new JButton("Yes");
+        JButton noButton = new JButton("No");
 
-            if (!decision) {
-                return turnScore;
+        // Add action listeners
+        yesButton.addActionListener(e -> {
+            decision = true;
+            decisionMade = true;
+            dialog.dispose();
+        });
+
+        noButton.addActionListener(e -> {
+            decision = false;
+            decisionMade = true;
+            dialog.dispose();
+        });
+
+        // Add components to dialog
+        buttonPanel.add(yesButton);
+        buttonPanel.add(noButton);
+        dialog.add(message, BorderLayout.CENTER);
+        dialog.add(buttonPanel, BorderLayout.SOUTH);
+
+        // Configure and show dialog
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        dialog.setVisible(true);
+
+        // Wait for user decision
+        while (!decisionMade) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ignored) {
             }
-            decisionMade = false;
         }
+        return decision;
     }
 
-    /**
-     * Decide if the HumanPlayer should roll again
-     * @param decision Decision to set
-     */
-    public void makeDecision(boolean decision) {
-        this.decision = decision;
-        this.decisionMade = true;
-    }
+
 }

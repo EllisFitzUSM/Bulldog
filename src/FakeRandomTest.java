@@ -1,4 +1,6 @@
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.junit.Test;
@@ -18,7 +20,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("1 1 1 1 1 1 1");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(7, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(7, sevenPlayer.play(gameStatus));
     }
 
     /**
@@ -29,7 +32,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("1 6");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(0, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(0, sevenPlayer.play(gameStatus));
     }
 
     /**
@@ -40,7 +44,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("6 1 1 1");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(0, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(0, sevenPlayer.play(gameStatus));
     }
 
     /**
@@ -51,7 +56,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("6");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(0, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(0, sevenPlayer.play(gameStatus));
     }
 
     /**
@@ -62,7 +68,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("1 5 5 4 3 2 1");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(11, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(11, sevenPlayer.play(gameStatus));
     }
 
     /**
@@ -73,7 +80,8 @@ public class FakeRandomTest {
         Scanner scanner = new Scanner("1 2 3 4 5 6 7 8 9");
         DiceSuper die = new FakeRandomDice(6, scanner);
         Player sevenPlayer = new SevenPlayer("Dummy", die);
-        assertEquals(10, sevenPlayer.play());
-        assertEquals(0, sevenPlayer.play());
+        GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
+        assertEquals(10, sevenPlayer.play(gameStatus));
+        assertEquals(0, sevenPlayer.play(gameStatus));
     }
 }

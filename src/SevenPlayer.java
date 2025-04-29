@@ -15,24 +15,13 @@ public class SevenPlayer extends Player {
     }
 
     /**
-     * Play a turn for this player.
-     * @return The score granted for this turn.
+     * Decides if the Player needs to continue their turn
+     * @param gameStatus Status of the Bulldog Game encapsulated in an object
+     * @param turnScore Current turn score
+     * @param rollsCount Number of rolls
+     * @return boolean
      */
-    @Override
-    public int play() {
-        int turnScore = 0;
-        while (true) {
-            int roll = die.roll();
-            if(listener != null) listener.onRoll(this, roll);
-            if (roll == 6) {
-                return 0;
-
-            }
-            turnScore += roll;
-            if(listener != null) listener.onRoll(this, roll);
-            if (turnScore >= 7) {
-                return turnScore;
-            }
-        }
+    public boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount) {
+        return turnScore < 7;
     }
 }

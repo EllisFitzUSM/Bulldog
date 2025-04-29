@@ -15,23 +15,13 @@ public class AIPlayer extends Player {
     }
 
     /**
-     * Play method which quits rolling as soon as 3 rolls have been made.
-     * @return The score to be added to this players overall score
+     * Decides if the Player needs to continue their turn
+     * @param gameStatus Status of the Bulldog Game encapsulated in an object
+     * @param turnScore Current turn score
+     * @param rollsCount Number of rolls
+     * @return boolean
      */
-    public int play() {
-        int turnScore = 0;
-        int rollsCount = 0;
-        while (true) {
-            int roll = die.roll();
-            listener.onRoll(this, roll);
-            rollsCount++;
-            if (roll == 6) {
-                return 0;
-            }
-            turnScore += roll;
-            if (rollsCount == 3) {
-                return turnScore;
-            }
-        }
+    public boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount) {
+        return rollsCount < 3;
     }
 }

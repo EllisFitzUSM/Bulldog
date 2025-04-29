@@ -1,6 +1,7 @@
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * Scoreboard Viewer. Creates a temporary scoreboard between turns which is disposed and GC.
@@ -8,6 +9,8 @@ import java.awt.*;
  * @version April 14th, 2025
  */
 class ScoreboardViewer extends JDialog {
+
+    private JButton okButton;
 
     /**
      * Creates a Scoreboard JDialog
@@ -39,12 +42,20 @@ class ScoreboardViewer extends JDialog {
         table.setRowHeight(25);
         table.getColumnModel().getColumn(1).setCellRenderer(new RightAlignRenderer());
 
-        JButton okButton = new JButton("OK");
+        okButton = new JButton("OK");
         okButton.addActionListener(e -> dispose());
 
         add(new JScrollPane(table), BorderLayout.CENTER);
         add(okButton, BorderLayout.SOUTH);
         pack();
+    }
+
+    /**
+     * Listen to the ok button press
+     * @param l provided listener to call
+     */
+    public void addOkButtonActionListener(ActionListener l) {
+        okButton.addActionListener(l);
     }
 
     /**

@@ -15,21 +15,13 @@ public class RandomPlayer extends Player {
     }
 
     /**
-     * Plays the players turn.
-     * @return The score earned this turn.
+     * Decides if the Player needs to continue their turn
+     * @param gameStatus Status of the Bulldog Game encapsulated in an object
+     * @param turnScore Current turn score
+     * @param rollsCount Number of rolls
+     * @return boolean
      */
-    public int play() {
-        int turnScore = 0;
-        while (true) {
-            int roll = die.roll();
-            listener.onRoll(this, roll);
-            if (roll == 6) {
-                return 0;
-            }
-            turnScore += roll;
-            if (RandomSingleton.getInstance().nextFloat() < 0.5) {
-                return turnScore;
-            }
-        }
+    public boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount) {
+        return RandomSingleton.getInstance().nextFloat() >= 0.5;
     }
 }

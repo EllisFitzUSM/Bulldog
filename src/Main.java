@@ -23,9 +23,8 @@ public class Main implements GameEventListener {
     private GameModel model;
     private int numPlayers;
     private JTextArea consoleOutput;
-    private JButton yesButton;
-    private JButton noButton;
     private int playerCreationIndex;
+    private boolean bScoreBoardShowing;
 
     /**
      * Main entry point for the application.
@@ -250,31 +249,11 @@ public class Main implements GameEventListener {
         consoleOutput.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane consoleScroll = new JScrollPane(consoleOutput);
 
-        JPanel buttonPanel = new JPanel();
-        yesButton = new JButton("Yes");
-        noButton = new JButton("No");
-        buttonPanel.add(yesButton);
-        buttonPanel.add(noButton);
-
         consolePanel.add(consoleScroll, BorderLayout.CENTER);
-        consolePanel.add(buttonPanel, BorderLayout.SOUTH);
         consolePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         gamePanel.add(consolePanel, BorderLayout.SOUTH);
 
-        yesButton.addActionListener(e -> {
-            if (Referee.getInstance().getCurrentPlayer(model) instanceof HumanPlayer) {
-                HumanPlayer humanPlayer = (HumanPlayer) Referee.getInstance().getCurrentPlayer(model);
-                humanPlayer.makeDecision(true);
-            }
-        });
-
-        noButton.addActionListener(e -> {
-            if (Referee.getInstance().getCurrentPlayer(model) instanceof HumanPlayer) {
-                HumanPlayer humanPlayer = (HumanPlayer) Referee.getInstance().getCurrentPlayer(model);
-                humanPlayer.makeDecision(false);
-            }
-        });
 
         return gamePanel;
     }
@@ -287,8 +266,6 @@ public class Main implements GameEventListener {
     private void startGame() {
         cardLayout.show(cards, "Game");
         Referee.getInstance().startGame(model, this);
-//        currentPlayerIndex = 0;
-//        startNextTurn();
     }
 
 
@@ -307,9 +284,6 @@ public class Main implements GameEventListener {
      */
     @Override
     public void onTurnStart(Player player) {
-        yesButton.setVisible(false);
-        noButton.setVisible(false);
-
         consoleOutput.setText("");
         addConsoleMessage("It is " + Referee.getInstance().getCurrentPlayer(model).getName() + "'s turn!\n");
         addConsoleMessage("Total Score: " + Referee.getInstance().getCurrentPlayer(model).getScore());
@@ -325,12 +299,7 @@ public class Main implements GameEventListener {
         addConsoleMessage("\nTurn Results:");
         addConsoleMessage("Score added: " + turnScore);
         addConsoleMessage("New total: " + player.getScore() + "\n");
-
-//        if (player.getScore() >= WINNING_SCORE) {
-//            onGameOver(player);
-//        } else {
         showScoreboard();
-//        }
     }
 
     /**
@@ -354,8 +323,6 @@ public class Main implements GameEventListener {
     public void onTurnDecision(Player player, int currentTurnScore) {
         SwingUtilities.invokeLater(() -> {
             if (player instanceof HumanPlayer) {
-                yesButton.setVisible(true);
-                noButton.setVisible(true);
                 consoleOutput.append("Turn total: " + currentTurnScore + "\nRoll again?\n");
             }
         });
@@ -365,80 +332,23 @@ public class Main implements GameEventListener {
     public void onGameOver(Player winner) {
         addConsoleMessage("\n\n!!! GAME OVER !!!");
         addConsoleMessage(winner.getName() + " WINS WITH " + winner.getScore() + " POINTS!");
-        yesButton.setVisible(false);
-        noButton.setVisible(false);
     }
 
     /**
      * Called when the scoreboard is shown
      */
     private void showScoreboard() {
-        SwingUtilities.invokeLater(() -> {
+        if(!bScoreBoardShowing) {
+            bScoreBoardShowing = true;
             ScoreboardViewer dialog = new ScoreboardViewer(frame, model);
-            dialog.setVisible(true);
-        });
+            SwingUtilities.invokeLater(() -> {
+                dialog.setVisible(true);
+            });
+
+            dialog.addOkButtonActionListener(e -> {
+                bScoreBoardShowing = false;
+            });
+        }
     }
-
-    //    /**
-//     * Called when a player wins the game
-//     * @param winner the Player who reached the score
-//     */
-//    private void gameOver(Player winner) {
-//        addConsoleMessage("\n\n!!! GAME OVER !!!");
-//        addConsoleMessage(winner.getName() + " WINS WITH " + winner.getScore() + " POINTS!");
-//        yesButton.setVisible(false);
-//        noButton.setVisible(false);
-//    }
-
-    /**
-     * Called when it is a new players turn.
-     * Will give expected display for a player's turn.
-     */
-//    private void startNextTurn() {
-//        Player currentPlayer = model.getPlayer(currentPlayerIndex);
-//        yesButton.setVisible(false);
-//        noButton.setVisible(false);
-//
-//        consoleOutput.setText("");
-//        addConsoleMessage("It is " + currentPlayer.getName() + "'s turn!\n");
-//        addConsoleMessage("Total Score: " + currentPlayer.getScore());
-//
-//        messageTimer = new Timer(MESSAGE_DELAY, e -> {
-//            messageTimer.stop();
-//            new Thread(() -> executePlayerTurn(currentPlayer)).start();
-//        });
-//        messageTimer.start();
-//    }
-//
-//    /**
-//     * Called when a player is expected to execute their turn.
-//     * @param player The player that will have their play method called.
-//     */
-//    private void executePlayerTurn(Player player) {
-//        new Thread(() -> {
-//            int result = player.play();
-//            SwingUtilities.invokeLater(() -> handleTurnResult(player, result));
-//        }).start();
-//    }
-//
-//    /**
-//     * Called when a Player has decided (or was forced to) end their turn.
-//     * @param player The player who just executed their turn.
-//     * @param turnScore The amount of score they earned this turn.
-//     */
-//    private void handleTurnResult(Player player, int turnScore) {
-//        model.addToPlayerScore(currentPlayerIndex, turnScore);
-//        addConsoleMessage("\nTurn Results:");
-//        addConsoleMessage("Score added: " + turnScore);
-//        addConsoleMessage("New total: " + model.getPlayerScore(currentPlayerIndex) + "\n");
-//
-//        if (model.getPlayerScore(currentPlayerIndex) >= WINNING_SCORE) {
-//            gameOver(player);
-//        } else {
-//            showScoreboard();
-//            currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
-//            startNextTurn();
-//        }
-//    }
 
 }

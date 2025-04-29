@@ -80,4 +80,14 @@ public class GameModel {
             throw new IllegalArgumentException("Invalid player index: " + index);
         }
     }
+
+    /**
+     * Get the current GameStatus object
+     * @param currentPlayerIndex The player currently with a turn
+     * @param winningScore The score that results in a win
+     * @return GameStatus encapsulated in an object
+     */
+    public GameStatus getGameStatus(int currentPlayerIndex, int winningScore) {
+        return new GameStatus(players, currentPlayerIndex, winningScore);
+    }
 }

@@ -1,12 +1,8 @@
-/********************************************************/
-/* David Levine                                         */
-/* Login ID: david.b.levine@maine.edu                   */
-/* COS 497, Summer 2024                                 */
-/* Programming Assignment 6                             */
-/* abstract Player class: holds generic info about a    */
-/*           player of the game Bulldog                 */
-/*      See Kettering University, CS-101, Prog 6        */
-/********************************************************/
+/**
+ * Player class
+ * @author Ellis Fitzgerald
+ * @version April 24th, 2025
+ */
 public abstract class Player {
 
 	protected DiceSuper die;
@@ -14,65 +10,69 @@ public abstract class Player {
 	private final String name;   	// The name of the Player
 	private int score;		// The score earned by this Player during the game
 
-	/********************************************************/
-	/* Constructor: Player                                  */
-	/* Purpose: Create a new Player object                  */
-	/* Parameters:                                          */
-	/*   String name:  the name of the Player being created */
-	/********************************************************/
+	/**
+	 * Constructs a player
+	 * @param name player name
+	 * @param die the dice to be used
+	 */
 	public Player (String name, DiceSuper die) {
 		this.name = name;
 		this.score = 0;
 		this.die = die;
 	}
-	
-	/********************************************************/
-	/* Method:  getName                                     */
-	/* Purpose: return the name of this Player              */
-	/* Parameters:                                          */
-	/*   none                                               */
-	/* Returns:                                             */
-	/*   the name of this Player                            */
-	/********************************************************/
+
+
+	/**
+	 * Get the name of the player
+	 * @return String representing players name
+	 */
 	public String getName() {
 		return this.name;
 	}
 
-	/********************************************************/
-	/* Method:  getScore                                    */
-	/* Purpose: return the current score of this Player     */
-	/* Parameters:                                          */
-	/*   none                                               */
-	/* Returns:                                             */
-	/*   the current score of this Player                   */
-	/********************************************************/
+	/**
+	 * Get the score that the player has
+	 * @return Int representing players score
+	 */
 	public int getScore() {
 		return this.score;
 	}
-	
-	/********************************************************/
-	/* Method:  setScore                                    */
-	/* Purpose: set the current score of this Player        */
-	/* Parameters:                                          */
-	/*   int score - the new value of the score             */
-	/* Returns:                                             */
-	/*   none                                               */
-	/********************************************************/
+
+	/**
+	 * Set the score of the player
+	 * @param score Int representation of the score to set
+	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
-	/********************************************************/
-	/* Method:  play                                        */
-	/* Purpose: abstract method that encapsulates one turn  */
-	/*          for this Player                             */
-	/* Parameters:                                          */
-	/*   none                                               */
-	/* Returns:                                             */
-	/*   the score earned by the player on this turn,       */
-	/*       which will be zero if a six was rolled         */
-	/********************************************************/
-	public abstract int play();
+
+	/**
+	 * Play a turn for this player
+	 * @return Int representing turn score
+	 */
+	public int play(GameStatus gameStatus) {
+		int turnScore = 0;
+		int rollsCount = 0;
+		do {
+			int roll = die.roll();
+			listener.onRoll(this, roll);
+			if(roll == 6) {
+				return 0;
+			}
+			turnScore += roll;
+			rollsCount++;
+		} while(continueTurn(gameStatus, turnScore, rollsCount));
+		return turnScore;
+	}
+
+	/**
+	 * Decides if the Player needs to continue their turn
+	 * @param gameStatus Status of the Bulldog Game encapsulated in an object
+	 * @param turnScore Current turn score
+	 * @param rollsCount Number of rolls
+	 * @return boolean
+	 */
+	public abstract boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount);
 
 	/**
 	 * Sets the GameEventListener to the Prog6 Class Instance

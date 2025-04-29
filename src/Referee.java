@@ -68,7 +68,8 @@ public class Referee {
      */
     private void executePlayerTurn(GameModel model, GameEventListener listener, Player player) {
         new Thread(() -> {
-            int result = player.play();
+
+            int result = player.play(model.getGameStatus(currentPlayerIndex , winningScore));
             processTurnResult(model, listener, player, result);
         }).start();
     }

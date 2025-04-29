@@ -15,21 +15,14 @@ public class UniquePlayer extends Player {
     }
 
     /**
-     * Play until score is doubled.
+     * Decides if the Player needs to continue their turn
+     * @param gameStatus Status of the Bulldog Game encapsulated in an object
+     * @param turnScore Current turn score
+     * @param rollsCount Number of rolls
+     * @return boolean
      */
-    public int play() {
-        int rollTotal = 0;
-        do {
-            int roll = die.roll();
-            listener.onRoll(this, roll);
-            if(roll == 6) {
-                return 0;
-            }
-            rollTotal += roll;
-//            listener.onMessage("Current score total: " + rollTotal);
-        }
-        while(getScore() == 0 && rollTotal < 5 || rollTotal + getScore() <= getScore() * 2);
-        return rollTotal;
+    public boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount) {
+        return getScore() == 0 && turnScore < 5 || turnScore <= getScore();
     }
 
 }
