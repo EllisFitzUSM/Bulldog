@@ -38,7 +38,7 @@ public class Referee {
      * @param listener listener which responds to any events (such as the view)
      */
     public void startGame(GameModel model, GameEventListener listener) {
-        startNextTurn(model, listener);
+        turnCycle(model, listener);
     }
 
     /**
@@ -51,46 +51,50 @@ public class Referee {
     }
 
     /**
-     * Starts the next turn based on the currentPlayerIndex
-     * @param model model containing the collection of players.
-     * @param listener listener which responds to any events (such as the view)
+     * Plays through the turn cycle of all the players
+     *
+     * @param model Game model of all the players
+     * @param listener Game event listener
      */
-    private void startNextTurn(GameModel model, GameEventListener listener) {
-        Player current = model.getPlayer(currentPlayerIndex);
-        listener.onTurnStart(current);
-        executePlayerTurn(model, listener, current);
-    }
+    public void turnCycle(GameModel model, GameEventListener listener) {
+        while(true) {
+            Player current = model.getPlayer(currentPlayerIndex);
+            listener.onTurnStart(current);
+            int turnScore = playTurn(current, model.getGameStatus(currentPlayerIndex, winningScore), listener);
 
-    /**
-     * Starts the next turn based on the currentPlayerIndex
-     * @param model model containing the collection of players.
-     * @param listener listener which responds to any events (such as the view)
-     */
-    private void executePlayerTurn(GameModel model, GameEventListener listener, Player player) {
-        new Thread(() -> {
+            model.addToPlayerScore(currentPlayerIndex, turnScore);
 
-            int result = player.play(model.getGameStatus(currentPlayerIndex , winningScore));
-            processTurnResult(model, listener, player, result);
-        }).start();
-    }
-
-    /**
-     * Process a turn result (if it should cause a game over or if the next turn should start)
-     * @param model model containing the collection of players.
-     * @param listener listener which responds to any events (such as the view)
-     * @param player Player whose turn has finished.
-     * @param turnScore score they gained this turn.
-     */
-    private void processTurnResult(GameModel model, GameEventListener listener, Player player, int turnScore) {
-        model.addToPlayerScore(currentPlayerIndex, turnScore);
-
-        if (model.getPlayerScore(currentPlayerIndex) >= winningScore) {
-            listener.onGameOver(player);
-        } else {
-            listener.onTurnEnd(player, turnScore);
-            currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
-            startNextTurn(model, listener);
+            if (model.getPlayerScore(currentPlayerIndex) >= winningScore) {
+                listener.onGameOver(model.getPlayer(currentPlayerIndex));
+                break;
+            } else {
+                listener.onTurnEnd(model.getPlayer(currentPlayerIndex), turnScore);
+                currentPlayerIndex = (currentPlayerIndex + 1) % model.getNumberOfPlayers();
+            }
         }
+    }
+
+    /**
+     * Plays a turn for a player
+     *
+     * @param player
+     * @param gameStatus
+     * @param listener
+     * @return
+     */
+    public int playTurn(Player player, GameStatus gameStatus, GameEventListener listener) {
+        int turnScore = 0;
+        int rollsCount = 0;
+        do {
+            int roll = DiceSingleton.getInstance().roll();
+            listener.onRoll(player, roll);
+            if(roll == 6) {
+                return 0;
+            }
+            turnScore += roll;
+            rollsCount++;
+        } while(player.continueTurn(gameStatus, turnScore, rollsCount));
+        return turnScore;
     }
 
 }

@@ -5,7 +5,6 @@
  */
 public abstract class Player {
 
-	protected DiceSuper die;
 	protected GameEventListener listener;
 	private final String name;   	// The name of the Player
 	private int score;		// The score earned by this Player during the game
@@ -13,12 +12,10 @@ public abstract class Player {
 	/**
 	 * Constructs a player
 	 * @param name player name
-	 * @param die the dice to be used
 	 */
-	public Player (String name, DiceSuper die) {
+	public Player (String name) {
 		this.name = name;
 		this.score = 0;
-		this.die = die;
 	}
 
 
@@ -47,25 +44,6 @@ public abstract class Player {
 	}
 
 	/**
-	 * Play a turn for this player
-	 * @return Int representing turn score
-	 */
-	public int play(GameStatus gameStatus) {
-		int turnScore = 0;
-		int rollsCount = 0;
-		do {
-			int roll = die.roll();
-			listener.onRoll(this, roll);
-			if(roll == 6) {
-				return 0;
-			}
-			turnScore += roll;
-			rollsCount++;
-		} while(continueTurn(gameStatus, turnScore, rollsCount));
-		return turnScore;
-	}
-
-	/**
 	 * Decides if the Player needs to continue their turn
 	 * @param gameStatus Status of the Bulldog Game encapsulated in an object
 	 * @param turnScore Current turn score
@@ -73,14 +51,5 @@ public abstract class Player {
 	 * @return boolean
 	 */
 	public abstract boolean continueTurn(GameStatus gameStatus, int turnScore, int rollsCount);
-
-	/**
-	 * Sets the GameEventListener to the Prog6 Class Instance
-	 * @author DeepSeek
-	 * @param listener Class that implements the GameEventListener interface
-	 */
-	public void setGameEventListener(GameEventListener listener) {
-		this.listener = listener;
-	}
 	
 }

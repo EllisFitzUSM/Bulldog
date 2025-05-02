@@ -197,31 +197,30 @@ public class Main implements GameEventListener {
      */
     private Player createPlayer(String type, String name) {
         Player player;
-        DiceSuper die = new PsuedoRandomDice(6);
+        DiceSingleton.getInstance(DiceType.PSEUDO_RANDOM);
         switch (type) {
             case "Human":
-                player = new HumanPlayer(name, die);
+                player = new HumanPlayer(name);
                 break;
             case "Random":
-                player = new RandomPlayer(name, die);
+                player = new RandomPlayer(name);
                 break;
             case "Fifteen":
-                player = new FifteenPlayer(name, die);
+                player = new FifteenPlayer(name);
                 break;
             case "Wimp":
-                player = new WimpPlayer(name, die);
+                player = new WimpPlayer(name);
                 break;
             case "Unique":
-                player = new UniquePlayer(name, die);
+                player = new UniquePlayer(name);
                 break;
             case "AIUnique":
-                player = new AIPlayer(name, die);
+                player = new AIPlayer(name);
                 break;
             default:
-                player = new RandomPlayer(name, die);
+                player = new RandomPlayer(name);
                 break;
         }
-        player.setGameEventListener(this);
         return player;
     }
 

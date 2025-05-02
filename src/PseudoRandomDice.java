@@ -5,10 +5,10 @@ import java.util.Random;
  * @author Ellis Fitzgerald
  * @version 0.7
  */
-public class PsuedoRandomDice extends DiceSuper {
+public class PseudoRandomDice extends DiceSuper {
     private final Random random;
 
-    public PsuedoRandomDice(int side) {
+    public PseudoRandomDice(int side) {
         super(side);
         this.random = RandomSingleton.getInstance();
     }

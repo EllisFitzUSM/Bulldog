@@ -18,8 +18,7 @@ public class FakeRandomTest {
     @Test
     public void maximumRoll() {
         Scanner scanner = new Scanner("1 1 1 1 1 1 1");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(7, sevenPlayer.play(gameStatus));
     }
@@ -30,8 +29,8 @@ public class FakeRandomTest {
     @Test
     public void conditionOrder1() {
         Scanner scanner = new Scanner("1 6");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        DiceSingleton.getInstance(DiceType.FAKE_RANDOM);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(0, sevenPlayer.play(gameStatus));
     }
@@ -42,8 +41,8 @@ public class FakeRandomTest {
     @Test
     public void conditionOrder2() {
         Scanner scanner = new Scanner("6 1 1 1");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        DiceSingleton.getInstance(DiceType.FAKE_RANDOM);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(0, sevenPlayer.play(gameStatus));
     }
@@ -54,8 +53,8 @@ public class FakeRandomTest {
     @Test
     public void earlyExit() {
         Scanner scanner = new Scanner("6");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        DiceSingleton.getInstance(DiceType.FAKE_RANDOM);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(0, sevenPlayer.play(gameStatus));
     }
@@ -66,8 +65,8 @@ public class FakeRandomTest {
     @Test
     public void maximumScore() {
         Scanner scanner = new Scanner("1 5 5 4 3 2 1");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        DiceSingleton.getInstance(DiceType.FAKE_RANDOM);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(11, sevenPlayer.play(gameStatus));
     }
@@ -78,8 +77,8 @@ public class FakeRandomTest {
     @Test
     public void multipleTurnsExit() {
         Scanner scanner = new Scanner("1 2 3 4 5 6 7 8 9");
-        DiceSuper die = new FakeRandomDice(6, scanner);
-        Player sevenPlayer = new SevenPlayer("Dummy", die);
+        DiceSingleton.getInstance(DiceType.FAKE_RANDOM);
+        Player sevenPlayer = new SevenPlayer("Dummy");
         GameStatus gameStatus = new GameStatus(new ArrayList<Player>(), 0, 104);
         assertEquals(10, sevenPlayer.play(gameStatus));
         assertEquals(0, sevenPlayer.play(gameStatus));

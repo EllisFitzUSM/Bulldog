@@ -8,10 +8,9 @@ public class SevenPlayer extends Player {
     /**
      * Create a Seven player with the given name.
      * @param name Name to give to player
-     * @param die Dice to use
      */
-    public SevenPlayer(String name, DiceSuper die) {
-        super(name, die);
+    public SevenPlayer(String name) {
+        super(name);
     }
 
     /**

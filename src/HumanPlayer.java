@@ -14,8 +14,8 @@ public class HumanPlayer extends Player {
      * Create a HumanPlayer with given name.
      * @param name Given name to assign to player
      */
-    public HumanPlayer(String name, DiceSuper die) {
-        super(name, die);
+    public HumanPlayer(String name) {
+        super(name);
     }
 
     /**

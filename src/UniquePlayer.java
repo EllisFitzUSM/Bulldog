@@ -8,10 +8,9 @@ public class UniquePlayer extends Player {
     /**
      * Create a UniquePlayer with a name
      * @param name name to give to UniquePlayer
-     * @param die Dice to use
      */
-    public UniquePlayer(String name, DiceSuper die) {
-        super(name, die);
+    public UniquePlayer(String name) {
+        super(name);
     }
 
     /**

@@ -8,10 +8,9 @@ public class AIPlayer extends Player {
     /**
      * Creates an AIPlayer with the given name
      * @param name Name to give to associate with the player
-     * @param die Dice to use
      */
-    public AIPlayer(String name, DiceSuper die) {
-        super(name, die);
+    public AIPlayer(String name) {
+        super(name);
     }
 
     /**

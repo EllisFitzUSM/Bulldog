@@ -8,10 +8,9 @@ public class FifteenPlayer extends Player {
     /**
      * Create a Fifteen player with the given name.
      * @param name Name to give to player
-     * @param die Dice to use
      */
-    public FifteenPlayer(String name, DiceSuper die) {
-        super(name, die);
+    public FifteenPlayer(String name) {
+        super(name);
     }
 
     /**

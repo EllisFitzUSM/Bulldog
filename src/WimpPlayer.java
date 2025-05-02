@@ -9,10 +9,9 @@ public class WimpPlayer extends Player {
 	/**
 	 * Construct a WimpPlayer
 	 * @param name Name string of WimpPlayer
-	 * @param die Die used to roll for Bulldog
 	 */
-	public WimpPlayer (String name, DiceSuper die) {
-		super(name, die);
+	public WimpPlayer (String name) {
+		super(name);
 	}
 
 	/**
